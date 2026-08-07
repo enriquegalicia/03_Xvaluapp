@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalifIndividual">
+            <connections>
+                <outlet property="backgroundView" destination="H2p-sc-9uM" id="rh6-s1-kfQ"/>
+                <outlet property="califica" destination="2zN-wo-FuA" id="yF8-OC-XjK"/>
+                <outlet property="idd" destination="T42-Ll-TWX" id="2Lq-fd-Emz"/>
+                <outlet property="nombre" destination="eeg-mE-IEO" id="naH-oH-A8w"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalifInd" rowHeight="40" id="KGk-i7-Jjw" customClass="CalifIndividual">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T42-Ll-TWX">
+                        <rect key="frame" x="0.0" y="0.0" width="24" height="39"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Completo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-mE-IEO">
+                        <rect key="frame" x="32" y="0.0" width="210" height="39"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2zN-wo-FuA">
+                        <rect key="frame" x="250" y="0.0" width="50" height="40"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="califica" destination="2zN-wo-FuA" id="Pxf-RI-Xpo"/>
+                <outlet property="idd" destination="T42-Ll-TWX" id="iPn-cm-x7I"/>
+                <outlet property="nombre" destination="eeg-mE-IEO" id="eWm-XL-sSH"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

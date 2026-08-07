@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JudgePanel">
+            <connections>
+                <outlet property="BtBorrarP" destination="xKi-kq-e3S" id="5MU-gU-iIu"/>
+                <outlet property="BtEnviarP" destination="b30-ob-Opp" id="WYt-K0-cJb"/>
+                <outlet property="BtGuardar" destination="10Z-b9-3xK" id="c3t-gL-edH"/>
+                <outlet property="IvCbJueces" destination="cJ8-57-fg8" id="YBR-BC-FuV"/>
+                <outlet property="IvCbRubros" destination="MOQ-ld-J4q" id="UAc-uk-T5U"/>
+                <outlet property="IvFondo" destination="oPW-Oh-JaL" id="e8V-8o-RFG"/>
+                <outlet property="IvTbAnteriores" destination="psz-lh-dRH" id="ssm-kL-6Nm"/>
+                <outlet property="IvTbSiguientes" destination="Yjg-hc-CP3" id="WWe-Dg-rPs"/>
+                <outlet property="LaAnteriores" destination="AYN-g0-gjW" id="DMa-Aa-A2R"/>
+                <outlet property="LaEvParcial" destination="d2z-cD-dcu" id="JOF-ki-gzw"/>
+                <outlet property="LaJuez" destination="SVq-PI-Uke" id="t4x-2C-KYE"/>
+                <outlet property="LaResultados" destination="d2z-cD-dcu" id="SaZ-fa-iGW"/>
+                <outlet property="LaRubro" destination="6bS-nc-7Oo" id="0f2-4h-bzD"/>
+                <outlet property="LaSiguientes" destination="0lc-Ok-eJG" id="wLB-n0-6jS"/>
+                <outlet property="TfPassword" destination="JaS-1X-245" id="cM9-ge-mo1"/>
+                <outlet property="n00" destination="a86-Z0-TRz" id="S5a-14-Cui"/>
+                <outlet property="n1" destination="Yjw-Hp-0k8" id="xGx-xp-FEi"/>
+                <outlet property="n2" destination="GqL-zO-bec" id="Gwj-Tv-VO1"/>
+                <outlet property="n3" destination="qAS-Sn-2wy" id="P1O-04-FTW"/>
+                <outlet property="n4" destination="AOj-5m-12P" id="iBE-U9-DeM"/>
+                <outlet property="n5" destination="f0N-D2-CXJ" id="4G3-nP-wUw"/>
+                <outlet property="n6" destination="yOO-pF-Cnf" id="YT7-Jf-fET"/>
+                <outlet property="n7" destination="yjD-4K-5Pl" id="aE1-3M-VDd"/>
+                <outlet property="n8" destination="ucQ-5U-hM1" id="oEx-dw-8g5"/>
+                <outlet property="n9" destination="w8O-nS-GuH" id="CCp-Dh-P4a"/>
+                <outlet property="view" destination="0QR-vs-2Fr" id="PzV-QU-Hpy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0QR-vs-2Fr">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pantalla Jueces clean.png" translatesAutoresizingMaskIntoConstraints="NO" id="oPW-Oh-JaL">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psz-lh-dRH">
+                    <rect key="frame" x="15" y="75" width="300" height="432"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjg-hc-CP3">
+                    <rect key="frame" x="345" y="75" width="300" height="432"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJ8-57-fg8">
+                    <rect key="frame" x="654" y="242" width="350" height="35"/>
+                    <animations/>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MOQ-ld-J4q">
+                    <rect key="frame" x="654" y="285" width="350" height="35"/>
+                    <animations/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JaS-1X-245">
+                    <rect key="frame" x="797" y="16" width="207" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suJ-f1-SpO">
+                    <rect key="frame" x="925" y="54" width="79" height="42"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="20"/>
+                    <state key="normal" title="Principal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="Desactivado:" destination="-1" eventType="touchUpInside" id="K8S-NF-WGN"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Evaluation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bS-nc-7Oo">
+                    <rect key="frame" x="15" y="599" width="254" height="60"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Heat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lc-Ok-eJG">
+                    <rect key="frame" x="345" y="6" width="301" height="61"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Heat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AYN-g0-gjW">
+                    <rect key="frame" x="15" y="6" width="300" height="61"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Judge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVq-PI-Uke">
+                    <rect key="frame" x="15" y="536" width="254" height="61"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjw-Hp-0k8">
+                    <rect key="frame" x="15" y="648" width="90" height="100"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="1">
+                        <color key="titleColor" red="1" green="0.91928447530000001" blue="0.97143576210000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="KYM-wE-uVC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqL-zO-bec">
+                    <rect key="frame" x="113" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="2">
+                        <color key="titleColor" red="1" green="0.91928447530000001" blue="0.97143576210000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="jNI-lN-X66"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAS-Sn-2wy">
+                    <rect key="frame" x="211" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="3">
+                        <color key="titleColor" red="1" green="0.91928447530000001" blue="0.97143576210000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="2nm-Ox-viT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOj-5m-12P">
+                    <rect key="frame" x="309" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="4">
+                        <color key="titleColor" red="1" green="0.91928447530000001" blue="0.97143576210000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="iue-OB-kXC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0N-D2-CXJ">
+                    <rect key="frame" x="407" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="5">
+                        <color key="titleColor" red="1" green="0.91928447530000001" blue="0.97143576210000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="Uqr-Lq-4Ld"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOO-pF-Cnf">
+                    <rect key="frame" x="505" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="6">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="W56-fk-R0q"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjD-4K-5Pl">
+                    <rect key="frame" x="603" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="7">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="9zo-zn-ODr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucQ-5U-hM1">
+                    <rect key="frame" x="701" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="8">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="o3K-tu-5QZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b30-ob-Opp">
+                    <rect key="frame" x="500" y="585" width="146" height="73"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <state key="normal" title="Send">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="EnviarP:" destination="-1" eventType="touchUpInside" id="Rfv-Lv-wiP"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-kq-e3S">
+                    <rect key="frame" x="499" y="509" width="146" height="73"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <state key="normal" title="Delete">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="BorrarP:" destination="-1" eventType="touchUpInside" id="Pqq-yu-PFO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8O-nS-GuH">
+                    <rect key="frame" x="799" y="632" width="90" height="132"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="9">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="Zvf-PX-qzf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a86-Z0-TRz">
+                    <rect key="frame" x="894" y="632" width="110" height="133"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="100"/>
+                    <state key="normal" title="0">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="calificacion:" destination="-1" eventType="touchUpInside" id="Fxk-BF-AGw"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-cD-dcu">
+                    <rect key="frame" x="260" y="497" width="231" height="139"/>
+                    <animations/>
+                    <color key="tintColor" red="0.0" green="5.3884705570000003e-05" blue="0.65701426630000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="150"/>
+                    <color key="textColor" red="0.0" green="5.3884705570000003e-05" blue="0.65701426630000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" red="0.0" green="5.3884705570000003e-05" blue="0.65701426630000004" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10Z-b9-3xK">
+                    <rect key="frame" x="800" y="492" width="204" height="73"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="Guardar:" destination="-1" eventType="touchUpInside" id="cgN-q1-qf0"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Pantalla Jueces clean.png" width="1024" height="768"/>
+    </resources>
+</document>

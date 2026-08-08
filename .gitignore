@@ -1,0 +1,20 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+*.moved-aside
+*.pbxuser
+*.perspectivev3
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Build products (use GitHub Releases / TestFlight, not git, for shipping this)
+*.ipa
+*.dSYM.zip
+*.dSYM

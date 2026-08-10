@@ -25,6 +25,10 @@ targets:
       path: Sources/Info.plist
       properties:
         UILaunchScreen: {}
+        NSLocalNetworkUsageDescription: "Xvaluapp uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
+        NSBonjourServices:
+          - _xvaluapp-sync._tcp
+          - _xvaluapp-sync._udp
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
           - UIInterfaceOrientationLandscapeLeft

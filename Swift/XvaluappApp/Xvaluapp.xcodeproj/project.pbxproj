@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		17BB305B532AE68A59D7F5FC /* XvaluappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B5EF448BB4F9D102DE94C8 /* XvaluappApp.swift */; };
+		181ECA0BA7796A4C48A683D8 /* MultipeerTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFDDB15DA67781ABDF9E102 /* MultipeerTransport.swift */; };
 		317821C708AF19F4CAB4D0C7 /* XvaluappCore in Frameworks */ = {isa = PBXBuildFile; productRef = 09BA7FA3D159A59874027DA6 /* XvaluappCore */; };
 		373DE3DC3B613A939E27886A /* EventSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60DD82C60B68369B24F4A5 /* EventSession.swift */; };
+		46B81E10DF0EABA1393751DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A471CDA8C6AE9E42A7B76A14 /* Assets.xcassets */; };
 		55CDA5491D8FDCF5B00AE6B9 /* ScoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2954FE61E059E9CA001F0340 /* ScoringView.swift */; };
+		659D9048B538E0A010C35B20 /* MasterConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73098CC994E731C84C01EA /* MasterConsoleView.swift */; };
+		94073D9F031A6AA4F7045BF0 /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A62B7A83E9CB3629B559C /* RoleSelectionView.swift */; };
 		9F41BA0A9D0E2A60D1C305EE /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192825C04DE5DFE7D955857D /* EventDetailView.swift */; };
 		A537618DF24B6A9B00ADEF9A /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F796DCDBCCA2154548037A71 /* DemoData.swift */; };
 		A552843CD275B730B930778B /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D84A7F295AD6E77A519831 /* StandingsView.swift */; };
@@ -23,9 +27,13 @@
 		2954FE61E059E9CA001F0340 /* ScoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringView.swift; sourceTree = "<group>"; };
 		2D31C17369F714E164DC1997 /* XvaluappCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XvaluappCore; path = ../XvaluappCore; sourceTree = SOURCE_ROOT; };
 		378461E59988DDB1B373CD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F73098CC994E731C84C01EA /* MasterConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterConsoleView.swift; sourceTree = "<group>"; };
 		4A60DD82C60B68369B24F4A5 /* EventSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSession.swift; sourceTree = "<group>"; };
 		4FC0D061D3E2776C4497D64B /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		5BFDDB15DA67781ABDF9E102 /* MultipeerTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerTransport.swift; sourceTree = "<group>"; };
 		8B668FD76C2FD07FAB68E51D /* Xvaluapp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Xvaluapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		959A62B7A83E9CB3629B559C /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
+		A471CDA8C6AE9E42A7B76A14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D84A7F295AD6E77A519831 /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
 		F796DCDBCCA2154548037A71 /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,11 +70,15 @@
 		CF020960381DE2C7E836C114 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A471CDA8C6AE9E42A7B76A14 /* Assets.xcassets */,
 				F796DCDBCCA2154548037A71 /* DemoData.swift */,
 				192825C04DE5DFE7D955857D /* EventDetailView.swift */,
 				4FC0D061D3E2776C4497D64B /* EventListView.swift */,
 				4A60DD82C60B68369B24F4A5 /* EventSession.swift */,
 				378461E59988DDB1B373CD5D /* Info.plist */,
+				3F73098CC994E731C84C01EA /* MasterConsoleView.swift */,
+				5BFDDB15DA67781ABDF9E102 /* MultipeerTransport.swift */,
+				959A62B7A83E9CB3629B559C /* RoleSelectionView.swift */,
 				2954FE61E059E9CA001F0340 /* ScoringView.swift */,
 				D3D84A7F295AD6E77A519831 /* StandingsView.swift */,
 				22B5EF448BB4F9D102DE94C8 /* XvaluappApp.swift */,
@@ -90,6 +102,7 @@
 			buildConfigurationList = 8607C9EEEB79D7B6AB5A8B2A /* Build configuration list for PBXNativeTarget "Xvaluapp" */;
 			buildPhases = (
 				F14254E40FF9E1CB1A09B076 /* Sources */,
+				9D70209FBC44F19C364CA6CE /* Resources */,
 				7573F6165E0EB41625DB5169 /* Frameworks */,
 			);
 			buildRules = (
@@ -137,6 +150,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9D70209FBC44F19C364CA6CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46B81E10DF0EABA1393751DC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F14254E40FF9E1CB1A09B076 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -146,6 +170,9 @@
 				9F41BA0A9D0E2A60D1C305EE /* EventDetailView.swift in Sources */,
 				D31D955BECD66221B9225E6B /* EventListView.swift in Sources */,
 				373DE3DC3B613A939E27886A /* EventSession.swift in Sources */,
+				659D9048B538E0A010C35B20 /* MasterConsoleView.swift in Sources */,
+				181ECA0BA7796A4C48A683D8 /* MultipeerTransport.swift in Sources */,
+				94073D9F031A6AA4F7045BF0 /* RoleSelectionView.swift in Sources */,
 				55CDA5491D8FDCF5B00AE6B9 /* ScoringView.swift in Sources */,
 				A552843CD275B730B930778B /* StandingsView.swift in Sources */,
 				17BB305B532AE68A59D7F5FC /* XvaluappApp.swift in Sources */,

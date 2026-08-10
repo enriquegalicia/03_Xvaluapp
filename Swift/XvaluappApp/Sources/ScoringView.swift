@@ -90,6 +90,12 @@ struct ScoringView: View {
             .disabled(pad.value == nil || selectedParticipantID == nil)
             .padding()
         }
+        // On iPad's much wider detail column, a keypad stretched edge to
+        // edge is harder to reach and to read than one sized for a hand —
+        // cap and center it instead of letting it fill the available
+        // width, the same "fit the screen" fix as the split-view change.
+        .frame(maxWidth: 480)
+        .frame(maxWidth: .infinity)
         .background(.thinMaterial)
     }
 

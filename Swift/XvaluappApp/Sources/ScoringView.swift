@@ -25,6 +25,11 @@ struct ScoringView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            if session.role != .master {
+                ConnectionStatusBadge(connectedPeerNames: session.connectedPeerNames)
+                    .padding(.top, 8)
+            }
+
             Picker("Category", selection: $categoryID) {
                 ForEach(session.event.categories) { category in
                     Text(category.name).tag(category.id)
@@ -38,7 +43,12 @@ struct ScoringView: View {
             }
 
             List(pendingParticipants, selection: $selectedParticipantID) { participant in
-                Text(participant.name).tag(participant.id)
+                Label {
+                    Text(participant.name)
+                } icon: {
+                    FlagImage(countryCode: participant.countryCode, size: 18)
+                }
+                .tag(participant.id)
             }
             .listStyle(.plain)
             .frame(maxHeight: 220)

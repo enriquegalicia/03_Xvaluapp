@@ -19,6 +19,7 @@ struct EventListView: View {
     @State private var events: [Event] = []
     @State private var selectedEventID: Event.ID?
     @State private var loadError: String?
+    @State private var showingNewEvent = false
 
     var body: some View {
         NavigationSplitView {
@@ -38,11 +39,26 @@ struct EventListView: View {
             .navigationTitle("Xvaluapp")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        addDemoEvent()
+                    Menu {
+                        Button {
+                            showingNewEvent = true
+                        } label: {
+                            Label("New Event…", systemImage: "plus.circle")
+                        }
+                        Button {
+                            addDemoEvent()
+                        } label: {
+                            Label("Add Demo Event", systemImage: "flag.checkered")
+                        }
                     } label: {
-                        Label("Add Demo Event", systemImage: "plus")
+                        Label("Add", systemImage: "plus")
                     }
+                }
+            }
+            .sheet(isPresented: $showingNewEvent) {
+                NewEventView(store: store) { event in
+                    load()
+                    selectedEventID = event.id
                 }
             }
         } detail: {

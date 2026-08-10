@@ -14,6 +14,17 @@ struct MasterConsoleView: View {
 
     var body: some View {
         List {
+            Section("Roster") {
+                NavigationLink {
+                    RosterEditorView(session: session)
+                } label: {
+                    Label("Edit Participants, Judges & Categories", systemImage: "person.crop.circle.badge.plus")
+                }
+                Text("\(session.event.participants.count) participants · \(session.event.judges.count) judges · \(session.event.categories.count) categories")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             Section("Score as Judge") {
                 ForEach(session.event.judges) { judge in
                     NavigationLink(judge.name) {

@@ -9,6 +9,13 @@ struct StandingsView: View {
 
     var body: some View {
         List {
+            if session.role != .master {
+                ConnectionStatusBadge(connectedPeerNames: session.connectedPeerNames)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+            }
+
             if session.standings.isEmpty {
                 ContentUnavailableView(
                     "No Scores Yet",
@@ -23,12 +30,15 @@ struct StandingsView: View {
                             .foregroundStyle(.secondary)
                             .frame(width: 32, alignment: .leading)
 
+                        FlagImage(countryCode: row.participant.countryCode)
+
                         VStack(alignment: .leading) {
                             Text(row.participant.name).font(.headline)
-                            Text(row.participant.countryCode)
+                            Text(Countries.named(row.participant.countryCode))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
+                        .padding(.leading, 6)
 
                         Spacer()
 

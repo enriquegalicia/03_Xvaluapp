@@ -26,6 +26,13 @@ final class EventSession {
         self.store = store
     }
 
+    /// Display names only — keeps `MCPeerID`/`MultipeerConnectivity` out of
+    /// every view that just wants to show connection status (see
+    /// `ConnectionStatusBadge`).
+    var connectedPeerNames: [String] {
+        transport?.connectedPeers.map(\.displayName) ?? []
+    }
+
     var standings: [RankingRow] {
         RankingEngine.standings(participants: event.participants, scores: event.scores)
     }
@@ -55,14 +62,20 @@ final class EventSession {
         self.role = role
         let transport = MultipeerTransport(displayName: displayName)
         transport.onReceive = { [weak self] message, _ in self?.handle(message) }
+        // Only the master browses/invites — judge and screen devices just
+        // advertise and wait, mirroring the legacy app's asymmetric
+        // "master presents the browser, everyone else just shows up in it"
+        // flow instead of every peer independently browsing *and*
+        // advertising, which invited races between two devices trying to
+        // invite each other simultaneously.
         if role == .master {
             transport.onPeerConnected = { [weak self] peer in
                 guard let self else { return }
                 transport.send(.fullEventSnapshot(self.event), to: [peer])
             }
+            transport.startBrowsing()
         }
         transport.startAdvertising()
-        transport.startBrowsing()
         self.transport = transport
     }
 
@@ -150,6 +163,18 @@ final class EventSession {
         event.scores.removeAll()
         persist()
         transport?.broadcast(.resetEvent)
+    }
+
+    /// Replaces the roster (used by `RosterEditorView` for both "add a
+    /// walk-up participant mid-event" and general roster edits). Existing
+    /// scores are untouched — this only ever changes the participant/judge/
+    /// category *lists*, never renumbers ids `Score`s already reference.
+    func updateRoster(participants: [Participant], judges: [Judge], categories: [ScoringCategory]) {
+        event.participants = participants
+        event.judges = judges
+        event.categories = categories
+        persist()
+        transport?.broadcast(.rosterUpdated(participants: participants, categories: categories, judges: judges))
     }
 
     func advanceToFinals() {

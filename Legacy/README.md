@@ -4,10 +4,11 @@ Files moved here on 2026-08-07 during the Swift migration cleanup. None of these
 were referenced by `Xvaluapp.xcodeproj/project.pbxproj` (verified by grep before
 moving), so relocating them does not affect the original Objective-C build.
 
-- **BuildArchives/** — four old exported `.ipa` builds (A1/A2/B1/C1) that were
-  sitting in the repo root. Build products don't belong in git history going
-  forward — ship via TestFlight/Releases instead. Kept here rather than deleted
-  since they may be useful reference artifacts of what actually shipped.
+- **BuildArchives/** — *(removed 2026-08-10)* four old exported `.ipa` builds
+  (A1/A2/B1/C1, ~11MB) that were sitting in the repo root, then briefly kept
+  here. Deleted for good once the project had real, working builds again
+  (see the Swift app) — they were binary build products with no source value,
+  and don't belong in git history. Ship via TestFlight/Releases instead.
 - **UnusedRootIcons/** — pre-`Images.xcassets` era icon PNGs (`icon-29.png`,
   `icon_iPad-*.png`, `iconiTunesArtWork-*.png`) duplicated at the repo root.
   The active icons live in `RedBullApp/Images.xcassets/AppIcon.appiconset/`;

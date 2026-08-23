@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D1B9D6A18F4A1970009EB54 /* DINNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B9D6818F4A1970009EB54 /* DINNextLTPro-Bold.otf */; };
-		3D1B9D6B18F4A1970009EB54 /* DINNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B9D6918F4A1970009EB54 /* DINNextLTPro-Regular.otf */; };
-		3D1B9D6E18F4A5E50009EB54 /* DINNextLTPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B9D6D18F4A5E50009EB54 /* DINNextLTPro-Medium.otf */; };
 		3D1B9D7F18F4B1AD0009EB54 /* Resultado1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B9D7A18F4B1AD0009EB54 /* Resultado1.m */; };
 		3D1B9D8018F4B1AD0009EB54 /* Resultado1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1B9D7B18F4B1AD0009EB54 /* Resultado1.xib */; };
 		3D1B9D8118F4B1AD0009EB54 /* Resultados1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B9D7D18F4B1AD0009EB54 /* Resultados1.m */; };
@@ -32,8 +29,6 @@
 		3D6C958E18E06A0000FEA9C5 /* GestorBD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6C958D18E06A0000FEA9C5 /* GestorBD.m */; };
 		3D70174C18F5CB0800B4441F /* FondoB.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D70174B18F5CB0800B4441F /* FondoB.png */; };
 		3D76156E18B421D90014A8A4 /* Fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D76156D18B421D90014A8A4 /* Fondo.png */; };
-		3D76157018B425C50014A8A4 /* Fondo-Drenaje1024X786A.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3D76156F18B425C50014A8A4 /* Fondo-Drenaje1024X786A.JPG */; };
-		3D76157218B425D10014A8A4 /* Logo-Drenaje.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3D76157118B425D10014A8A4 /* Logo-Drenaje.gif */; };
 		3DA488B818DFB27D00EDC69C /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA488B718DFB27D00EDC69C /* Main.xib */; };
 		3DA488BA18DFB29000EDC69C /* Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DA488B918DFB29000EDC69C /* Screen.xib */; };
 		3DB6D75C189BFEDC0014C7CE /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DB6D75B189BFEDC0014C7CE /* arrow.png */; };
@@ -91,9 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D1B9D6818F4A1970009EB54 /* DINNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Bold.otf"; sourceTree = "<group>"; };
-		3D1B9D6918F4A1970009EB54 /* DINNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Regular.otf"; sourceTree = "<group>"; };
-		3D1B9D6D18F4A5E50009EB54 /* DINNextLTPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Medium.otf"; sourceTree = "<group>"; };
 		3D1B9D7918F4B1AD0009EB54 /* Resultado1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resultado1.h; sourceTree = "<group>"; };
 		3D1B9D7A18F4B1AD0009EB54 /* Resultado1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resultado1.m; sourceTree = "<group>"; };
 		3D1B9D7B18F4B1AD0009EB54 /* Resultado1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Resultado1.xib; sourceTree = "<group>"; };
@@ -119,8 +111,6 @@
 		3D6C958D18E06A0000FEA9C5 /* GestorBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestorBD.m; sourceTree = "<group>"; };
 		3D70174B18F5CB0800B4441F /* FondoB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FondoB.png; sourceTree = "<group>"; };
 		3D76156D18B421D90014A8A4 /* Fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fondo.png; sourceTree = "<group>"; };
-		3D76156F18B425C50014A8A4 /* Fondo-Drenaje1024X786A.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fondo-Drenaje1024X786A.JPG"; sourceTree = "<group>"; };
-		3D76157118B425D10014A8A4 /* Logo-Drenaje.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Logo-Drenaje.gif"; sourceTree = "<group>"; };
 		3DA488B718DFB27D00EDC69C /* Main.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main.xib; sourceTree = "<group>"; };
 		3DA488B918DFB29000EDC69C /* Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Screen.xib; sourceTree = "<group>"; };
 		3DB6D75B189BFEDC0014C7CE /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -265,9 +255,6 @@
 				3D2536E318F3841B00A3F127 /* Pantalla Jueces clean.png */,
 				3DD17AD718F8583300D33250 /* Last Heat general.png */,
 				3D1B9D8518F4BAE50009EB54 /* Ranking general.png */,
-				3D1B9D6818F4A1970009EB54 /* DINNextLTPro-Bold.otf */,
-				3D1B9D6918F4A1970009EB54 /* DINNextLTPro-Regular.otf */,
-				3D1B9D6D18F4A5E50009EB54 /* DINNextLTPro-Medium.otf */,
 				3D1CAB8E18F4566E00139229 /* Flags */,
 				3D2536E518F385B200A3F127 /* Ranking.png */,
 			);
@@ -374,8 +361,6 @@
 				3DFB7FBA189AF79700C2E6F3 /* AppDelegate.m */,
 				3DFB7FBC189AF79700C2E6F3 /* Images.xcassets */,
 				3DFB7FB1189AF79700C2E6F3 /* Supporting Files */,
-				3D76157118B425D10014A8A4 /* Logo-Drenaje.gif */,
-				3D76156F18B425C50014A8A4 /* Fondo-Drenaje1024X786A.JPG */,
 				3DCC05BE18ECC40E001F60FC /* Fond.png */,
 				3DCC05C018ECC416001F60FC /* Log.png */,
 			);
@@ -502,7 +487,6 @@
 				3D1CABA418F4568200139229 /* UK.png in Resources */,
 				3DB6D75C189BFEDC0014C7CE /* arrow.png in Resources */,
 				3D1CAB9B18F4568200139229 /* AUS.png in Resources */,
-				3D76157018B425C50014A8A4 /* Fondo-Drenaje1024X786A.JPG in Resources */,
 				3DDAE77618F5868A00CEC760 /* image002.png in Resources */,
 				3D1CABA518F4568200139229 /* USA.png in Resources */,
 				3D1B9D8018F4B1AD0009EB54 /* Resultado1.xib in Resources */,
@@ -511,18 +495,15 @@
 				3DCC05C118ECC416001F60FC /* Log.png in Resources */,
 				3DA488BA18DFB29000EDC69C /* Screen.xib in Resources */,
 				3D76156E18B421D90014A8A4 /* Fondo.png in Resources */,
-				3D1B9D6E18F4A5E50009EB54 /* DINNextLTPro-Medium.otf in Resources */,
 				3D1CABA018F4568200139229 /* ESP.png in Resources */,
 				3DD17AD818F8583300D33250 /* Last Heat general.png in Resources */,
 				3DBF976718DCE1B1006F45B3 /* CreacionEventos.xib in Resources */,
-				3D1B9D6A18F4A1970009EB54 /* DINNextLTPro-Bold.otf in Resources */,
 				3DA488B818DFB27D00EDC69C /* Main.xib in Resources */,
 				3D1CABA218F4568200139229 /* MEX.png in Resources */,
 				3DFB7FE5189AFC3500C2E6F3 /* JudgePanel.xib in Resources */,
 				3DFB8007189B22DF00C2E6F3 /* ComboBox.xib in Resources */,
 				3DCC05C618ECCE65001F60FC /* CalifIndividual.xib in Resources */,
 				3DCC05D018ECD694001F60FC /* Resultados.xib in Resources */,
-				3D76157218B425D10014A8A4 /* Logo-Drenaje.gif in Resources */,
 				3DCC05D718ECE93A001F60FC /* Res.xib in Resources */,
 				3D1CABA318F4568200139229 /* NL.png in Resources */,
 				3DFB7FF9189B071B00C2E6F3 /* BasicTable.xib in Resources */,
@@ -530,7 +511,6 @@
 				3D1CAB9D18F4568200139229 /* CAN.png in Resources */,
 				3DFB7FBD189AF79700C2E6F3 /* Images.xcassets in Resources */,
 				3DCE373418F9BF4000E00B87 /* Heat general.png in Resources */,
-				3D1B9D6B18F4A1970009EB54 /* DINNextLTPro-Regular.otf in Resources */,
 				3D70174C18F5CB0800B4441F /* FondoB.png in Resources */,
 				3D2536E418F3841B00A3F127 /* Pantalla Jueces clean.png in Resources */,
 				3D1CAB9C18F4568200139229 /* BRA.png in Resources */,

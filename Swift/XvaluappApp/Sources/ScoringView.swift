@@ -46,7 +46,7 @@ struct ScoringView: View {
                 Label {
                     Text(participant.name)
                 } icon: {
-                    FlagImage(countryCode: participant.countryCode, size: 18)
+                    ParticipantAvatar(participant: participant, size: 22)
                 }
                 .tag(participant.id)
             }

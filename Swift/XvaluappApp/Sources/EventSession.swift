@@ -21,6 +21,15 @@ final class EventSession {
     private(set) var role: PeerRole?
     private(set) var transport: MultipeerTransport?
 
+    /// Set when a save fails mid-event; views alert on it and clear it via
+    /// `clearPersistenceError()` instead of the app crashing on a full disk
+    /// or a permissions hiccup, the way an unguarded `try!` here would.
+    private(set) var persistenceError: String?
+
+    func clearPersistenceError() {
+        persistenceError = nil
+    }
+
     init(event: Event, store: any EventStoring) {
         self.event = event
         self.store = store
@@ -33,8 +42,12 @@ final class EventSession {
         transport?.connectedPeers.map(\.displayName) ?? []
     }
 
-    var standings: [RankingRow] {
-        RankingEngine.standings(participants: event.participants, scores: event.scores)
+    /// `categoryID: nil` gives the overall average across every category —
+    /// what the Screen carousel's first page and the Master console's
+    /// "any scores yet" check both want; a specific id gives that one
+    /// category's leaderboard, for the carousel's per-category pages.
+    func standings(categoryID: Int? = nil) -> [RankingRow] {
+        RankingEngine.standings(participants: event.participants, scores: event.scores, categoryID: categoryID)
     }
 
     /// Participants who don't yet have an approved score in the given
@@ -177,8 +190,20 @@ final class EventSession {
         transport?.broadcast(.rosterUpdated(participants: participants, categories: categories, judges: judges))
     }
 
+    /// Kept separate from `updateRoster` so that method's other call sites
+    /// don't have to pass branding values. Image *bytes* aren't synced to
+    /// other devices yet — only this local Documents path is stored, so a
+    /// Judge/Screen device that hasn't set its own logo just shows the
+    /// placeholder instead of another device's art until image transfer is
+    /// added (see the migration roadmap).
+    func updateBranding(logoImageFilename: String?, backgroundImageFilename: String?) {
+        event.logoImageFilename = logoImageFilename
+        event.backgroundImageFilename = backgroundImageFilename
+        persist()
+    }
+
     func advanceToFinals() {
-        let finalists = RankingEngine.finalists(from: standings, count: event.finalistCount)
+        let finalists = RankingEngine.finalists(from: standings(), count: event.finalistCount)
         var finalsEvent = event
         finalsEvent.participants = finalists.map(\.participant)
         finalsEvent.scores = []
@@ -188,10 +213,10 @@ final class EventSession {
     }
 
     private func persist() {
-        // A shipping build should surface a save failure as a retry/alert;
-        // `try!` here matches the rest of this prototype pass (see
-        // XvaluappApp.swift) rather than silently swallowing it the way
-        // `DataBase.m`'s sqlite3 error paths did.
-        try! store.save(event)
+        do {
+            try store.save(event)
+        } catch {
+            persistenceError = error.localizedDescription
+        }
     }
 }

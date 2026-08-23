@@ -65,7 +65,7 @@ struct MasterConsoleView: View {
                 } label: {
                     Label("Advance to Finals (Top \(session.event.finalistCount))", systemImage: "trophy")
                 }
-                .disabled(session.standings.isEmpty)
+                .disabled(session.standings().isEmpty)
 
                 Button(role: .destructive) {
                     showResetConfirm = true

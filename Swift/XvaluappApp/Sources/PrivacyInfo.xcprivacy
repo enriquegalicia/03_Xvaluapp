@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	Xvaluapp doesn't call any of Apple's "required-reason" APIs (no file
+	timestamps, no UserDefaults, no disk-space queries, no system-boot-time
+	reads — FileManager is used only for directory creation/enumeration and
+	plain read/write, none of the flagged accessors), and this app doesn't
+	collect or transmit any user data to a server this developer controls.
+	The OpenAI calls in ImagePickerField/SettingsView are BYOK: the user's
+	own API key, used only to talk directly to OpenAI with data the user
+	explicitly submits (a photo, a prompt) — not collection by this app.
+	Kept honest and empty rather than boilerplate-copied from another app.
+	-->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array/>
+</dict>
+</plist>

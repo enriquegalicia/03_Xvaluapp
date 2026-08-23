@@ -29,6 +29,30 @@ final class MultipeerTransport: NSObject {
     private(set) var connectedPeers: [MCPeerID] = []
     private(set) var discoveredPeers: [MCPeerID] = []
 
+    struct PendingInvitation {
+        let peerID: MCPeerID
+        fileprivate let handler: (Bool, MCSession?) -> Void
+    }
+
+    /// An incoming invitation waiting on the user to accept or decline it —
+    /// replaces the legacy `MCAdvertiserAssistant`'s silent auto-accept
+    /// (see `advertiser(_:didReceiveInvitationFromPeer:...)` below) with a
+    /// confirmation the device's own screen shows before joining any
+    /// session.
+    private(set) var pendingInvitation: PendingInvitation?
+
+    func acceptPendingInvitation() {
+        guard let pending = pendingInvitation else { return }
+        pending.handler(true, session)
+        pendingInvitation = nil
+    }
+
+    func declinePendingInvitation() {
+        guard let pending = pendingInvitation else { return }
+        pending.handler(false, nil)
+        pendingInvitation = nil
+    }
+
     var onReceive: ((SyncMessage, MCPeerID) -> Void)?
     /// Fired when a peer finishes connecting — the master uses this to push
     /// a full snapshot to just-joined devices, replacing the legacy app's
@@ -119,12 +143,13 @@ extension MultipeerTransport: MCSessionDelegate {
 
 extension MultipeerTransport: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
-        // Auto-accept: every device running this app at the event is
-        // trusted, matching the legacy app's model (it had no invite/accept
-        // UI either — MCAdvertiserAssistant accepted automatically). A
-        // future hardening pass could gate this behind a shared event PIN;
-        // tracked as a known simplification, not an oversight.
-        invitationHandler(true, session)
+        // Hold the invitation for the person at this device to accept or
+        // decline, instead of the legacy `MCAdvertiserAssistant`'s silent
+        // auto-accept — the framework requires the handler eventually be
+        // called exactly once, so `pendingInvitation` owns it until then.
+        DispatchQueue.main.async {
+            self.pendingInvitation = PendingInvitation(peerID: peerID, handler: invitationHandler)
+        }
     }
 }
 

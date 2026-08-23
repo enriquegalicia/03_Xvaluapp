@@ -16,6 +16,8 @@ struct NewEventView: View {
     @State private var categories: [NameDraft] = []
     @State private var heatSize = 4
     @State private var finalistCount = 12
+    @State private var logoImageFilename: String?
+    @State private var backgroundImageFilename: String?
     @State private var saveError: String?
 
     var body: some View {
@@ -27,13 +29,21 @@ struct NewEventView: View {
                     Stepper("Finalists: \(finalistCount)", value: $finalistCount, in: 1...50)
                 }
 
+                Section("Branding") {
+                    ImagePickerField(label: "Logo", imageFilename: $logoImageFilename)
+                    ImagePickerField(label: "Background", imageFilename: $backgroundImageFilename)
+                }
+
                 RosterSection(title: "Participants", items: $participants) {
                     RosterDraft(name: "", countryCode: Countries.all.first?.code ?? "USA")
                 } row: { $item in
-                    HStack {
-                        TextField("Name", text: $item.name)
-                        CountryPicker(selection: $item.countryCode)
-                            .fixedSize()
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            TextField("Name", text: $item.name)
+                            CountryPicker(selection: $item.countryCode)
+                                .fixedSize()
+                        }
+                        ImagePickerField(label: "Photo", imageFilename: $item.imageFilename)
                     }
                 }
 
@@ -59,8 +69,15 @@ struct NewEventView: View {
     private func create() {
         let event = Event(
             name: name.trimmingCharacters(in: .whitespaces),
+            logoImageFilename: logoImageFilename,
+            backgroundImageFilename: backgroundImageFilename,
             participants: participants.enumerated().map { index, draft in
-                Participant(id: index + 1, name: draft.name.isEmpty ? "Participant \(index + 1)" : draft.name, countryCode: draft.countryCode)
+                Participant(
+                    id: index + 1,
+                    name: draft.name.isEmpty ? "Participant \(index + 1)" : draft.name,
+                    countryCode: draft.countryCode,
+                    imageFilename: draft.imageFilename
+                )
             },
             judges: judges.enumerated().map { index, draft in
                 Judge(id: index + 1, name: draft.name.isEmpty ? "Judge \(index + 1)" : draft.name)
@@ -93,6 +110,7 @@ struct RosterDraft: Identifiable {
     var existingID: Int? = nil
     var name: String
     var countryCode: String
+    var imageFilename: String? = nil
 }
 
 struct NameDraft: Identifiable {

@@ -58,11 +58,16 @@ public struct Participant: Identifiable, Codable, Hashable, Sendable {
     public var name: String
     /// Country code used to look up a flag asset (legacy `Bandera`), e.g. "MEX".
     public var countryCode: String
+    /// Reference to a locally-stored photo or AI-generated portrait — see
+    /// `Event.logoImageFilename` for the same idea at the event level. Falls
+    /// back to the country flag anywhere it's shown when `nil`.
+    public var imageFilename: String?
 
-    public init(id: Int, name: String, countryCode: String) {
+    public init(id: Int, name: String, countryCode: String, imageFilename: String? = nil) {
         self.id = id
         self.name = name
         self.countryCode = countryCode
+        self.imageFilename = imageFilename
     }
 }
 

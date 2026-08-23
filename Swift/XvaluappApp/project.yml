@@ -13,6 +13,16 @@ settings:
 packages:
   XvaluappCore:
     path: ../XvaluappCore
+  # These two live in a sibling repo (Aguach1leLabs), not inside this one —
+  # unlike every other consumer of AguaDesign/AguaAI, which sits alongside
+  # Packages/ in that same repo. This path only resolves if both repos stay
+  # checked out at their current relative location on disk (see CLAUDE.md,
+  # "Which app ships"); if that ever changes, update these two paths or
+  # switch them to a git-URL package reference instead.
+  AguaDesign:
+    path: ../../../../Xcode/Aguach1leLabs/Packages/AguaDesign
+  AguaAI:
+    path: ../../../../Xcode/Aguach1leLabs/Packages/AguaAI
 targets:
   Xvaluapp:
     type: application
@@ -21,10 +31,18 @@ targets:
       - path: Sources
     dependencies:
       - package: XvaluappCore
+      - package: AguaDesign
+      - package: AguaAI
     info:
       path: Sources/Info.plist
       properties:
-        UILaunchScreen: {}
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        # No custom/proprietary encryption — only standard HTTPS/TLS (to
+        # OpenAI, when the user's added a key) and MultipeerConnectivity's
+        # own required AES session encryption, both exempt. Skips the "does
+        # your app use encryption" prompt on every App Store Connect upload.
+        ITSAppUsesNonExemptEncryption: false
         NSLocalNetworkUsageDescription: "Xvaluapp uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
         NSBonjourServices:
           - _xvaluapp-sync._tcp

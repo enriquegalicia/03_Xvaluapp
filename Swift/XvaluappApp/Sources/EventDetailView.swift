@@ -16,6 +16,29 @@ struct EventDetailView: View {
         content
             .navigationTitle(session.event.name)
             .navigationBarTitleDisplayMode(.inline)
+            .alert(
+                "Couldn't Save",
+                isPresented: Binding(
+                    get: { session.persistenceError != nil },
+                    set: { if !$0 { session.clearPersistenceError() } }
+                )
+            ) {
+                Button("OK") { session.clearPersistenceError() }
+            } message: {
+                Text(session.persistenceError ?? "")
+            }
+            .alert(
+                "Connection Request",
+                isPresented: Binding(
+                    get: { session.transport?.pendingInvitation != nil },
+                    set: { if !$0 { session.transport?.declinePendingInvitation() } }
+                )
+            ) {
+                Button("Accept") { session.transport?.acceptPendingInvitation() }
+                Button("Decline", role: .cancel) { session.transport?.declinePendingInvitation() }
+            } message: {
+                Text("\"\(session.transport?.pendingInvitation?.peerID.displayName ?? "A device")\" wants to connect to this event.")
+            }
     }
 
     @ViewBuilder
@@ -32,7 +55,7 @@ struct EventDetailView: View {
                 ScoringView(session: session, judge: judge)
             }
         case .scoreboard:
-            StandingsView(session: session)
+            ScoreboardCarouselView(session: session)
         case .master:
             MasterConsoleView(session: session)
         }

@@ -20,6 +20,10 @@ struct EventListView: View {
     @State private var selectedEventID: Event.ID?
     @State private var loadError: String?
     @State private var showingNewEvent = false
+    @State private var eventPendingDelete: Event?
+    @State private var eventPendingRename: Event?
+    @State private var renameText = ""
+    @State private var showingSettings = false
 
     var body: some View {
         NavigationSplitView {
@@ -32,12 +36,49 @@ struct EventListView: View {
                     )
                 } else {
                     ForEach(events) { event in
-                        EventRow(event: event).tag(event.id)
+                        EventRow(event: event)
+                            .tag(event.id)
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    eventPendingDelete = event
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    eventPendingRename = event
+                                    renameText = event.name
+                                } label: {
+                                    Label("Rename", systemImage: "pencil")
+                                }
+                                .tint(.blue)
+                            }
+                            .contextMenu {
+                                Button {
+                                    eventPendingRename = event
+                                    renameText = event.name
+                                } label: {
+                                    Label("Rename…", systemImage: "pencil")
+                                }
+                                Button(role: .destructive) {
+                                    eventPendingDelete = event
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                     }
                 }
             }
             .navigationTitle("Xvaluapp")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button {
@@ -61,6 +102,9 @@ struct EventListView: View {
                     selectedEventID = event.id
                 }
             }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
+            }
         } detail: {
             NavigationStack {
                 if let event = events.first(where: { $0.id == selectedEventID }) {
@@ -80,12 +124,63 @@ struct EventListView: View {
         } message: { message in
             Text(message)
         }
+        .confirmationDialog(
+            "Delete \"\(eventPendingDelete?.name ?? "")\"?",
+            isPresented: Binding(
+                get: { eventPendingDelete != nil },
+                set: { if !$0 { eventPendingDelete = nil } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button("Delete", role: .destructive) {
+                if let event = eventPendingDelete { deleteEvent(event) }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This permanently deletes the event and every score recorded for it. This can't be undone.")
+        }
+        .alert(
+            "Rename Event",
+            isPresented: Binding(
+                get: { eventPendingRename != nil },
+                set: { if !$0 { eventPendingRename = nil } }
+            )
+        ) {
+            TextField("Event name", text: $renameText)
+            Button("Cancel", role: .cancel) { eventPendingRename = nil }
+            Button("Save") { renameEvent() }
+        }
     }
 
     private func load() {
         do {
             events = try store.loadAll().sorted { $0.name < $1.name }
             if selectedEventID == nil { selectedEventID = events.first?.id }
+        } catch {
+            loadError = error.localizedDescription
+        }
+    }
+
+    private func deleteEvent(_ event: Event) {
+        do {
+            try store.delete(eventID: event.id)
+            if selectedEventID == event.id { selectedEventID = nil }
+            load()
+        } catch {
+            loadError = error.localizedDescription
+        }
+    }
+
+    private func renameEvent() {
+        guard let original = eventPendingRename else { return }
+        let trimmed = renameText.trimmingCharacters(in: .whitespacesAndNewlines)
+        defer { eventPendingRename = nil }
+        guard !trimmed.isEmpty else { return }
+        var renamed = original
+        renamed.name = trimmed
+        do {
+            try store.save(renamed)
+            load()
         } catch {
             loadError = error.localizedDescription
         }
@@ -107,11 +202,15 @@ private struct EventRow: View {
     let event: Event
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(event.name).font(.headline)
-            Text("\(event.participants.count) participants · \(event.judges.count) judges · \(event.categories.count) categories")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+        HStack(spacing: 12) {
+            StoredImage(filename: event.logoImageFilename, size: 40, systemFallback: "flag.checkered")
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(event.name).font(.headline)
+                Text("\(event.participants.count) participants · \(event.judges.count) judges · \(event.categories.count) categories")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
         }
         .padding(.vertical, 4)
     }

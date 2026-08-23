@@ -51,7 +51,7 @@ struct ScoreboardCarouselView: View {
     @ViewBuilder
     private var banner: some View {
         if let filename = session.event.backgroundImageFilename ?? session.event.logoImageFilename,
-           let uiImage = try? XvaluappAI.imageStore.loadImage(from: filename) {
+           let uiImage = try? ScoreDeckAI.imageStore.loadImage(from: filename) {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)

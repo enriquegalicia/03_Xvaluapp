@@ -5,7 +5,7 @@ import AguaAI
 
 /// Attaches a photo to an event or participant — pick one from the library,
 /// or generate one with AI in the shared Aguach1leLabs illustrated style
-/// (`XvaluappAI.styleSuffix`) via OpenAI, BYOK (see `SettingsView`). Neither
+/// (`ScoreDeckAI.styleSuffix`) via OpenAI, BYOK (see `SettingsView`). Neither
 /// the event nor the participant model had any imagery at all before this —
 /// see the migration roadmap's "Imagery & brand" phase.
 ///
@@ -22,7 +22,7 @@ struct ImagePickerField: View {
     @State private var aiPrompt = ""
     @State private var errorText: String?
 
-    private let imageStore = XvaluappAI.imageStore
+    private let imageStore = ScoreDeckAI.imageStore
 
     var body: some View {
         HStack(spacing: 12) {
@@ -108,8 +108,8 @@ struct ImagePickerField: View {
         errorText = nil
         defer { isGenerating = false }
         do {
-            let data = try await XvaluappAI.visionService.generateImage(
-                prompt: "\(prompt). \(XvaluappAI.styleSuffix)"
+            let data = try await ScoreDeckAI.visionService.generateImage(
+                prompt: "\(prompt). \(ScoreDeckAI.styleSuffix)"
             )
             guard let uiImage = UIImage(data: data) else {
                 errorText = "The AI didn't return a usable image."

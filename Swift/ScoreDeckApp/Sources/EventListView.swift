@@ -70,7 +70,7 @@ struct EventListView: View {
                     }
                 }
             }
-            .navigationTitle("Xvaluapp")
+            .navigationTitle("ScoreDeck")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {

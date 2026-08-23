@@ -6,13 +6,13 @@ import AguaAI
 /// Aguach1leLabs app uses (see `SettingsView`, `ImagePickerField`), so a
 /// tournament banner or rider portrait is stored and generated exactly the
 /// way a plate photo is in PlateSnap.
-enum XvaluappAI {
+enum ScoreDeckAI {
     static var visionService: OpenAIVisionService {
-        OpenAIVisionService(appIdentifier: Bundle.main.bundleIdentifier ?? "Xvaluapp")
+        OpenAIVisionService(appIdentifier: Bundle.main.bundleIdentifier ?? "ScoreDeck")
     }
 
     static var imageStore: LocalImageStore {
-        LocalImageStore(subdirectory: "Xvaluapp")
+        LocalImageStore(subdirectory: "ScoreDeck")
     }
 
     /// Shared visual language for anything generated for this app — the

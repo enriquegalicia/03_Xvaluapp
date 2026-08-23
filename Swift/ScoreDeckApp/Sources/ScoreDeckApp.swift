@@ -3,7 +3,7 @@ import AguaDesign
 import XvaluappCore
 
 @main
-struct XvaluappApp: App {
+struct ScoreDeckApp: App {
     @State private var store: JSONEventStore
 
     init() {

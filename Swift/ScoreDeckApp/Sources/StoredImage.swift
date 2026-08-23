@@ -3,7 +3,7 @@ import UIKit
 import AguaAI
 import XvaluappCore
 
-/// Renders an image previously saved via `XvaluappAI.imageStore` (a photo or
+/// Renders an image previously saved via `ScoreDeckAI.imageStore` (a photo or
 /// AI-generated art, see `ImagePickerField`), falling back to a plain SF
 /// Symbol badge when there's no filename or the file isn't on this device —
 /// which happens for any device that hasn't set its own branding yet, since
@@ -15,7 +15,7 @@ struct StoredImage: View {
     var systemFallback: String = "photo"
 
     var body: some View {
-        if let filename, let uiImage = try? XvaluappAI.imageStore.loadImage(from: filename) {
+        if let filename, let uiImage = try? ScoreDeckAI.imageStore.loadImage(from: filename) {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -44,7 +44,7 @@ struct ParticipantAvatar: View {
 
     var body: some View {
         if let filename = participant.imageFilename,
-           let uiImage = try? XvaluappAI.imageStore.loadImage(from: filename) {
+           let uiImage = try? ScoreDeckAI.imageStore.loadImage(from: filename) {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)

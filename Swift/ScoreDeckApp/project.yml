@@ -1,6 +1,6 @@
-name: Xvaluapp
+name: ScoreDeck
 options:
-  bundleIdPrefix: com.Magnificent
+  bundleIdPrefix: com.aguach1leLabs
   deploymentTarget:
     iOS: "17.0"
 configs:
@@ -24,7 +24,7 @@ packages:
   AguaAI:
     path: ../../../../Xcode/Aguach1leLabs/Packages/AguaAI
 targets:
-  Xvaluapp:
+  ScoreDeck:
     type: application
     platform: iOS
     sources:
@@ -43,10 +43,10 @@ targets:
         # own required AES session encryption, both exempt. Skips the "does
         # your app use encryption" prompt on every App Store Connect upload.
         ITSAppUsesNonExemptEncryption: false
-        NSLocalNetworkUsageDescription: "Xvaluapp uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
+        NSLocalNetworkUsageDescription: "ScoreDeck uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
         NSBonjourServices:
-          - _xvaluapp-sync._tcp
-          - _xvaluapp-sync._udp
+          - _scoredeck-sync._tcp
+          - _scoredeck-sync._udp
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
           - UIInterfaceOrientationLandscapeLeft
@@ -58,6 +58,6 @@ targets:
           - UIInterfaceOrientationLandscapeRight
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.Magnificent.XvaluappSwift
-        PRODUCT_NAME: Xvaluapp
+        PRODUCT_BUNDLE_IDENTIFIER: com.aguach1leLabs.ScoreDeck
+        PRODUCT_NAME: ScoreDeck
         GENERATE_INFOPLIST_FILE: NO

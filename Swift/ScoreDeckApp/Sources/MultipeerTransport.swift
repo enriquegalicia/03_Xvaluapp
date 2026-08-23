@@ -19,7 +19,7 @@ final class MultipeerTransport: NSObject {
     /// Service type identifiers must be 1–15 characters, lowercase
     /// letters/digits/hyphens only. Replaces the legacy hardcoded
     /// `"Xvaluapp1"` service type with the same idea, valid syntax.
-    private static let serviceType = "xvaluapp-sync"
+    private static let serviceType = "scoredeck-sync"
 
     let myPeerID: MCPeerID
     private let session: MCSession

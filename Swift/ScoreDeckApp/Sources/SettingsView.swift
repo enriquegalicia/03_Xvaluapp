@@ -11,7 +11,7 @@ struct SettingsView: View {
     @State private var feedback: String?
 
     private var keyStore: KeychainKeyStore {
-        KeychainKeyStore(appIdentifier: Bundle.main.bundleIdentifier ?? "Xvaluapp")
+        KeychainKeyStore(appIdentifier: Bundle.main.bundleIdentifier ?? "ScoreDeck")
     }
 
     var body: some View {

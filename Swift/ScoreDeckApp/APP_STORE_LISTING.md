@@ -1,12 +1,12 @@
 # App Store Connect listing — draft
 
-Draft copy for the Xvaluapp listing. Screenshots can't be produced here (no
+Draft copy for the ScoreDeck listing. Screenshots can't be produced here (no
 iOS SDK in this sandbox — see CLAUDE.md); everything else is ready to paste
 into App Store Connect once the app's been archived.
 
 ## Name & subtitle
 
-- **Name** (30 char max): `Xvaluapp`
+- **Name** (30 char max): `ScoreDeck`
 - **Subtitle** (30 char max): `Live Event Judging & Scoring`
 
 ## Promotional text (170 char max, editable without a new build)
@@ -17,7 +17,7 @@ into App Store Connect once the app's been archived.
 ## Description
 
 ```
-Xvaluapp turns any iPad or iPhone into a live judging and scoring system —
+ScoreDeck turns any iPad or iPhone into a live judging and scoring system —
 no internet connection required.
 
 Built for judged competitions: BMX and skate contests, freestyle and dirt-
@@ -50,7 +50,7 @@ BUILT FOR THE WHOLE EVENT
   you explicitly sync between them at the event
 
 PRIVACY
-Xvaluapp doesn't require an account, doesn't track you, and doesn't send
+ScoreDeck doesn't require an account, doesn't track you, and doesn't send
 your event data anywhere. AI image generation is optional and uses your
 own OpenAI API key, stored only in this device's Keychain.
 ```

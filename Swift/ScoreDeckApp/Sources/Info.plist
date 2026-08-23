@@ -18,15 +18,20 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSBonjourServices</key>
 	<array>
-		<string>_xvaluapp-sync._tcp</string>
-		<string>_xvaluapp-sync._udp</string>
+		<string>_scoredeck-sync._tcp</string>
+		<string>_scoredeck-sync._udp</string>
 	</array>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Xvaluapp uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required.</string>
+	<string>ScoreDeck uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required.</string>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

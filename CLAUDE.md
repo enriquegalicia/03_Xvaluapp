@@ -4,82 +4,88 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository overview
 
-Three things live side by side here:
+**One active app lives here:** `Swift/ScoreDeckApp/`, a SwiftUI iOS app
+(product name **"ScoreDeck"**, bundle id `com.aguach1leLabs.ScoreDeck`,
+iOS 17+, universal iPhone+iPad) built on top of `Swift/XvaluappCore/`, a
+from-scratch Swift Package holding the app's domain logic. This is the
+**intended App Store submission vehicle** — treat it as the only place to
+build new features. Everything else in this repo is archived reference
+material; see "The archived Objective-C app" below.
 
-- **`RedBullApp/` + `Xvaluapp.xcodeproj`** — the original, working Objective-C
-  iOS app (product name "Xvaluapp", still internally named RedBullApp,
-  bundle id `com.Magnificent.Xvaluapp`). It's a live, offline,
-  peer-to-peer judging/scoring app built for a BMX freestyle dirt-jump
-  event called **"Dirt Conquers"** (hardcoded db filenames
-  `DirtConquers1.db` / `DirtConquersFinals1.db` in `JudgePanel.m` give it
-  away). The project file now targets **`IPHONEOS_DEPLOYMENT_TARGET = 15.0`**
-  and **`TARGETED_DEVICE_FAMILY = "1,2"`** (universal iPhone+iPad, bumped up
-  from the original iOS 7.0 / iPad-only settings), but the UI itself was
-  never adapted for that — every xib still uses `fixedFrame="YES"`
-  iPad-sized absolute layouts and there's no non-iPad orientation key in
-  `Xvaluapp-Info.plist`, so an iPhone install renders badly. Considered the
-  **legacy reference implementation only** — see the "Which app ships"
-  note below before adding features here.
-- **`Swift/XvaluappCore/`** — a from-scratch Swift Package with this app's
-  domain logic in Swift (branch `swift-migration`). Pure `Foundation`, no
+- **`Swift/XvaluappCore/`** — pure `Foundation`, no
   UIKit/SwiftUI/MultipeerConnectivity dependency, so it builds and tests
-  without Xcode's iOS SDK.
-- **`Swift/XvaluappApp/`** — a real SwiftUI iOS app target (product name
-  "Xvaluapp", bundle id `com.Magnificent.XvaluappSwift`, iOS 17+, universal
-  iPhone+iPad) that consumes `XvaluappCore` and adds a `MultipeerConnectivity`
-  transport, persistence wiring, and a SwiftUI screen per legacy role. This
-  is the **active development target and the intended App Store submission
-  vehicle** — see "Which app ships" below. Xcode project is generated from
-  `project.yml` via `xcodegen`; regenerate with `xcodegen generate` after
-  editing `project.yml` (adding/removing source files needs a regenerate
-  too, since file membership isn't tracked by folder reference).
+  without Xcode's iOS SDK. Deliberately kept its original name (an internal
+  module name with no customer visibility) even after the app target
+  itself was renamed from "Xvaluapp" to "ScoreDeck" — not worth the churn
+  of touching every file's `import` line for a name nobody outside this
+  codebase sees.
+- **`Swift/ScoreDeckApp/`** — consumes `XvaluappCore` and adds a
+  `MultipeerConnectivity` transport, persistence wiring, and a SwiftUI
+  screen per legacy role. Renamed from "Xvaluapp"/"XvaluappApp"
+  (2026-08-23) to fit the Aguach1leLabs portfolio's naming style and move
+  it under that brand's bundle-id namespace. Xcode project is generated
+  from `project.yml` via `xcodegen`; regenerate with `xcodegen generate`
+  after editing `project.yml` (adding/removing source files needs a
+  regenerate too, since file membership isn't tracked by folder
+  reference).
 
-There's no more `Legacy/` archive folder — it held pre-`Images.xcassets`
-icon PNGs and one dead/orphaned `TablaSeccionada` fork, all already
-verified unreferenced in `project.pbxproj`, and was deleted outright
-(2026-08-23) rather than kept around; git history still has it if it's
-ever needed. Same pass also deleted the unrelated-client-project files
-called out below (`Fondo-Drenaje*`, `Logo-Drenaje.gif`, the three
-`DINNextLTPro-*.otf` fonts) and their now-stale `project.pbxproj` entries.
+### The archived Objective-C app
 
-### Which app ships
+`Legacy/RedBullApp/` + `Legacy/Xvaluapp.xcodeproj` (+ `Legacy/RedBullAppTests/`)
+is the original, working Objective-C iOS app this whole project migrated
+from (product name "Xvaluapp", internally named RedBullApp, bundle id
+`com.Magnificent.Xvaluapp`) — a live, offline, peer-to-peer judging/
+scoring app built for a BMX freestyle dirt-jump event called **"Dirt
+Conquers"** (hardcoded db filenames `DirtConquers1.db` /
+`DirtConquersFinals1.db` in `JudgePanel.m` give it away). Moved out of the
+repo root into `Legacy/` (2026-08-23) so the repository has one obvious
+active project instead of two equally-weighted ones — this code isn't
+going anywhere else, it's just no longer competing for attention with the
+app that actually ships.
 
-The Objective-C app (`RedBullApp/`) has accumulated serious, hard-to-patch-
-incrementally problems: unescaped `stringWithFormat:` SQL on every query
-(real injection risk, not theoretical), several concretely reachable crash
-bugs (see below), two structurally broken sync features, unauthenticated
-peers able to trigger a full data wipe or force finals over the mesh, no
-Local Network / photo-library privacy strings, no privacy manifest, no
-1024×1024 marketing icon, no launch screen, a hand-pinned provisioning
-profile GUID that won't resolve on another machine, and — discovered
-during a full-repo audit and since deleted — several bundled files
-(`Fondo-Drenaje*.jpg`, `Logo-Drenaje.gif`, unregistered `DINNextLTPro-*.otf`
-fonts) left over from unrelated prior client projects with no relation to
-this app. Bringing it
-to App Store quality would be close to a full rewrite of a ~2,000-line
-god-object view controller, so it isn't the target — treat it as reference
-material for behavior parity, not a place to build new features.
-`Swift/XvaluappApp/` is significantly further along than a from-scratch
-rewrite would be (all six legacy screens have a SwiftUI equivalent except
-the auto-rotating results carousel) and is the one intended to actually
-ship.
+It has accumulated serious, hard-to-patch-incrementally problems:
+unescaped `stringWithFormat:` SQL on every query (real injection risk, not
+theoretical), several concretely reachable crash bugs (see below), two
+structurally broken sync features, unauthenticated peers able to trigger a
+full data wipe or force finals over the mesh, no Local Network /
+photo-library privacy strings, no privacy manifest, no 1024×1024 marketing
+icon, no launch screen, a hand-pinned provisioning profile GUID that won't
+resolve on another machine, and — discovered during a full-repo audit and
+since deleted — several bundled files (`Fondo-Drenaje*.jpg`,
+`Logo-Drenaje.gif`, unregistered `DINNextLTPro-*.otf` fonts) left over
+from unrelated prior client projects with no relation to this app. The
+project file targets **`IPHONEOS_DEPLOYMENT_TARGET = 15.0`** and
+**`TARGETED_DEVICE_FAMILY = "1,2"`** (universal iPhone+iPad, bumped up
+from the original iOS 7.0 / iPad-only settings), but the UI itself was
+never adapted for that — every xib still uses `fixedFrame="YES"`
+iPad-sized absolute layouts and there's no non-iPad orientation key in
+`Xvaluapp-Info.plist`, so an iPhone install renders badly. Bringing it to
+App Store quality would be close to a full rewrite of a ~2,000-line
+god-object view controller, so it isn't the target — kept only as
+reference material for behavior parity, not a place to build new
+features. `Swift/ScoreDeckApp/` is significantly further along than a
+from-scratch rewrite would be (all six legacy screens have a SwiftUI
+equivalent, including the auto-rotating results carousel).
 
 ## Commands
 
-### Legacy Objective-C app (`RedBullApp` / `Xvaluapp.xcodeproj`)
+### Archived Objective-C app (`Legacy/RedBullApp` / `Legacy/Xvaluapp.xcodeproj`)
 
 Requires full Xcode — this sandbox only has Command Line Tools (no
 `iphoneos` SDK; `xcodebuild` is unavailable here). From a machine with
 Xcode installed:
 
 ```sh
+cd Legacy
 open Xvaluapp.xcodeproj
 # or, headless:
 xcodebuild -project Xvaluapp.xcodeproj -scheme Xvaluapp -sdk iphonesimulator build
 ```
 
 The `RedBullAppTests` target exists but has no real tests beyond the
-default `RedBullAppTests.m` stub.
+default `RedBullAppTests.m` stub. There should be little reason to touch
+this — it's archived reference material, not where new work happens (see
+"The archived Objective-C app" above).
 
 ### `Swift/XvaluappCore`
 
@@ -96,30 +102,32 @@ Command-Line-Tools-only environments like this one. Don't add
 `import XCTest` here; new tests should follow the existing `@Test`/`#expect`
 style in `Tests/XvaluappCoreTests/`.
 
-### `Swift/XvaluappApp`
+### `Swift/ScoreDeckApp`
 
 Same Xcode/iOS-SDK requirement as the legacy app — unbuildable in a
 Command-Line-Tools-only sandbox (imports SwiftUI/UIKit/MultipeerConnectivity/
 Observation). From a machine with Xcode installed:
 
 ```sh
-cd Swift/XvaluappApp
-xcodegen generate                 # regenerate Xvaluapp.xcodeproj from project.yml
-open Xvaluapp.xcodeproj
+cd Swift/ScoreDeckApp
+xcodegen generate                 # regenerate ScoreDeck.xcodeproj from project.yml
+open ScoreDeck.xcodeproj
 # or, headless:
-xcodebuild -project Xvaluapp.xcodeproj -scheme Xvaluapp -sdk iphonesimulator build
+xcodebuild -project ScoreDeck.xcodeproj -scheme ScoreDeck -sdk iphonesimulator build
 ```
 
-There is no test target for this app yet (no XCTest/Swift-Testing files
-under `Swift/XvaluappApp/`) — `EventSession`, `MultipeerTransport`, and every
-SwiftUI view are currently untested. This build has never been verified in
-a real Xcode toolchain since it was written in a sandbox without one —
-treat first-build compiler errors as expected, not a sign something else is
-wrong.
+`xcodegen generate` has been run in this sandbox (xcodegen itself doesn't
+need the iOS SDK, just the project.yml → .pbxproj translation), so
+`ScoreDeck.xcodeproj` is checked in and current — but the actual
+`xcodebuild`/compile step has not, since that does need the SDK. There is
+no test target for this app yet (no XCTest/Swift-Testing files under
+`Swift/ScoreDeckApp/`) — `EventSession`, `MultipeerTransport`, and every
+SwiftUI view are currently untested. Treat first-build compiler errors as
+expected, not a sign something else is wrong.
 
 ## Architecture
 
-### Legacy app: one god-object view controller
+### Archived app: one god-object view controller
 
 `JudgePanel.m` (~2,000 lines, one file) is effectively the entire app: six
 different "screens" — participant/judge/category config list, judge scoring
@@ -162,8 +170,8 @@ keypress); `Guardar:` collapses the judge and scoring-category (`Rubro`)
 selection to the same id and the category picker setup is commented out, so
 independent per-category scoring doesn't actually work in this build;
 `TablaSeccionada copia.h/.m` was an unreferenced, regressed fork, deleted
-outright (2026-08-23, see "Repository overview") — don't resurrect it from
-git history; event create/rename/delete UI in
+outright (2026-08-23) — don't resurrect it from git history; event
+create/rename/delete UI in
 `CreacionEventos.m` is fully commented out and its buttons hidden in the
 xib, so only the two hardcoded seed events are reachable; logo/background
 images are persisted to disk but never displayed (every render call site is
@@ -195,12 +203,12 @@ above:
   SQL with an injection-proof `Codable`-JSON store (this app's data scale —
   dozens of participants, low thousands of score rows per event — doesn't
   need SQL). JSON only, and stays that way — image *bytes* are stored
-  outside this package (see `Swift/XvaluappApp`'s `XvaluappAI`/
+  outside this package (see `Swift/ScoreDeckApp`'s `ScoreDeckAI`/
   `LocalImageStore` below); `Event.logoImageFilename`/
   `backgroundImageFilename` and `Participant.imageFilename` just hold a
   local file path string into that store.
 
-### `Swift/XvaluappApp`: the SwiftUI app target
+### `Swift/ScoreDeckApp`: the SwiftUI app target
 
 Wires `XvaluappCore` up to a real iOS app. One SwiftUI view per legacy
 screen, `@Observable EventSession` as the glue layer, `MultipeerTransport`
@@ -241,18 +249,19 @@ menu, with a confirmation dialog) and rename.
 `Aguach1leLabs` repo — `AguaDesign` (dark-first tokens/components) and
 `AguaAI` (BYOK OpenAI service + `LocalImageStore`) — via local SPM paths
 (`../../../../Xcode/Aguach1leLabs/Packages/...`, relative to
-`Swift/XvaluappApp/`). **This only resolves if both repos stay checked out
+`Swift/ScoreDeckApp/`). **This only resolves if both repos stay checked out
 at their current relative location on this machine** — unlike every other
-app in that Lab, Xvaluapp doesn't live inside the `Aguach1leLabs` directory
-tree, so this crosses a repo boundary in a way none of their other local
-package references do. If either repo ever moves, or this project is
-cloned onto another machine without `Aguach1leLabs` alongside it at the
-same relative path, update `project.yml`'s `packages:` block (switch to a
-git-URL package reference, or vendor the two packages into this repo).
+app in that Lab, this project doesn't live inside the `Aguach1leLabs`
+directory tree, so this crosses a repo boundary in a way none of their
+other local package references do. If either repo ever moves, or this
+project is cloned onto another machine without `Aguach1leLabs` alongside
+it at the same relative path, update `project.yml`'s `packages:` block
+(switch to a git-URL package reference, or vendor the two packages into
+this repo).
 
-- `XvaluappAI.swift` — one `enum` holding a shared `OpenAIVisionService`
+- `ScoreDeckAI.swift` — one `enum` holding a shared `OpenAIVisionService`
   (BYOK, key from Keychain), a shared `LocalImageStore(subdirectory:
-  "Xvaluapp")`, and `styleSuffix`, a fixed prompt fragment matching
+  "ScoreDeck")`, and `styleSuffix`, a fixed prompt fragment matching
   `ICON_STYLE_GUIDE.md`'s DNA (terracotta primary fill, espresso-brown ink
   outline, flat/no photorealism) so anything generated here reads as part
   of the same Lab as the app icon.
@@ -279,7 +288,9 @@ git-URL package reference, or vendor the two packages into this repo).
   `SyncMessage` case for images under some size threshold) is the natural
   next step here.
 - App accent color is `AguaColor.Accent.amber` (`#D4960A`), set once via
-  `.tint(...)` on the root `WindowGroup` content in `XvaluappApp.swift`.
+  `.tint(...)` on the root `WindowGroup` content in `ScoreDeckApp.swift`
+  (the `@main` entry point — renamed alongside the app itself; not to be
+  confused with `XvaluappCore`, the domain-logic package it depends on).
 
 App Store compliance done so far: the 1024×1024 marketing icon already
 existed; `PrivacyInfo.xcprivacy` now declares no tracking, no collected
@@ -292,17 +303,16 @@ screen; `AccentColor` now matches the chosen amber accent exactly;
 on upload; `APP_STORE_LISTING.md` has draft name/subtitle/description/
 keywords/category copy ready to paste into App Store Connect.
 
-Still open: `XvaluappApp.swift`'s one-time `try! JSONEventStore(directory:)`
+Still open: `ScoreDeckApp.swift`'s one-time `try! JSONEventStore(directory:)`
 at launch is left as-is (documented as intentional — there's no recovery
 path if Application Support can't be created); no test target for the app
 layer; `RosterEditorView`/`NewEventView`/`ScoringView`/`MasterConsoleView`
 still use plain system `Form`/`List` styling rather than
 `AguaColor`/`.aguaCard()` throughout — `StandingsView` and the app-wide
 background/tint are done, the rest is a straightforward follow-up pass,
-not a redesign; the current bundle id (`com.Magnificent.XvaluappSwift`)
-and lack of a Development Team in `project.yml` still need to be set to
-whatever this app will actually ship under before it can be archived/
-submitted; screenshots and a hosted support/privacy-policy URL are needed
-before the App Store Connect listing can actually be submitted (see
-`APP_STORE_LISTING.md`) — both require a real device/simulator run, which
-this sandbox can't do.
+not a redesign; `project.yml` still has no Development Team set (the
+bundle id itself, `com.aguach1leLabs.ScoreDeck`, is now settled — set
+2026-08-23 alongside the app's rename from "Xvaluapp"); screenshots and a
+hosted support/privacy-policy URL are needed before the App Store Connect
+listing can actually be submitted (see `APP_STORE_LISTING.md`) — both
+require a real device/simulator run, which this sandbox can't do.

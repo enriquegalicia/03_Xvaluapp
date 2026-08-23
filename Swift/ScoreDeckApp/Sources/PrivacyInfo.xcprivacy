@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<!--
-	Xvaluapp doesn't call any of Apple's "required-reason" APIs (no file
+	ScoreDeck doesn't call any of Apple's "required-reason" APIs (no file
 	timestamps, no UserDefaults, no disk-space queries, no system-boot-time
 	reads — FileManager is used only for directory creation/enumeration and
 	plain read/write, none of the flagged accessors), and this app doesn't

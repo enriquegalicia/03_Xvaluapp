@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EDAB7796F6F24771CD8F803 /* RosterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B6332472CA31EA123615E7 /* RosterEditorView.swift */; };
+		18B53A547508FF5A55682E3C /* NewEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0DEA4D5858B55A03A8029F /* NewEventView.swift */; };
+		24F694E3A7D491AC897CA4B8 /* EventListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032829FDFC9E512B6D03F01F /* EventListView.swift */; };
+		310DC0DED383AFF3FC3EB10C /* ConnectionStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD40BEF5F65A365A5BA1929E /* ConnectionStatusBadge.swift */; };
+		329C4FAF6F8CD960F7D744AB /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9E3829F0663EED1610415 /* EventDetailView.swift */; };
+		3F563863DA57DCE7645A1F3D /* ScoreDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B6138BD637407A6BCB294 /* ScoreDeckApp.swift */; };
+		40C81BFA14A037A99FDC8010 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD23350C290A45AD762BD1A /* StandingsView.swift */; };
+		453154BAE9E26F21017BB5A7 /* MultipeerTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433BF4F46967B805C75353E /* MultipeerTransport.swift */; };
+		5DA2FB4C57B0E7AC4E608CFC /* AguaDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 78474765EA16CED6559C5D3C /* AguaDesign */; };
+		80B41996CFAB887A1196B6DC /* StoredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BB992DF6E3FFD49233B18 /* StoredImage.swift */; };
+		80D3BDE9D0AA1D844E6F7601 /* EventSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF7E2E88856F7A05D17150 /* EventSession.swift */; };
+		8FB32F4250FD4B6E309EE932 /* ScoreboardCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28EEE120B3DAE3CAD870D12 /* ScoreboardCarouselView.swift */; };
+		95B907F10FADBF350E6C4AE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB7C8A00386BFCE260196A5 /* Assets.xcassets */; };
+		9CA1F21C905BF2C35F628CC9 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAC95AC302773CA1A657C3E /* DemoData.swift */; };
+		AF7378C1568E1F7C055EE9B4 /* ScoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF0D4A7006428A77B5E4992 /* ScoringView.swift */; };
+		B07B13DF711BC3B588A7FDA3 /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4435D63D5FE83E0FA7FE4DA /* FlagImage.swift */; };
+		BB4785E450990984EAD1A756 /* ImagePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */; };
+		BD4304F6FA3773BB605D4FC0 /* ScoreDeckAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64D4841568C0189B0985C25 /* ScoreDeckAI.swift */; };
+		D5C5DB8F16D0E2B839A36D29 /* MasterConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F8AC9888BD88EF8B7D427 /* MasterConsoleView.swift */; };
+		F531F30DE3C0FF2745490036 /* XvaluappCore in Frameworks */ = {isa = PBXBuildFile; productRef = D4E07ECA81A5CF9B336624AD /* XvaluappCore */; };
+		F54037F482317E85A3D5A87E /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */; };
+		F7CF0E6FC8BD2E4A4D267574 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39C52B8436BCAF06DFB7B4 /* SettingsView.swift */; };
+		F952405632B09949570C78F1 /* AguaAI in Frameworks */ = {isa = PBXBuildFile; productRef = CCF274B73DB044936FAB84FC /* AguaAI */; };
+		FAB84B6DB8F59DC16C56DCF9 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 95A3ADD6A4993A717B8F3EEF /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		032829FDFC9E512B6D03F01F /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
+		55C9E3829F0663EED1610415 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		6BB7C8A00386BFCE260196A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7525CAA4D597F70DE7526031 /* AguaAI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AguaAI; path = ../../../../Xcode/Aguach1leLabs/Packages/AguaAI; sourceTree = SOURCE_ROOT; };
+		75C63C8187BE29277837AAD8 /* XvaluappCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XvaluappCore; path = ../XvaluappCore; sourceTree = SOURCE_ROOT; };
+		796B6138BD637407A6BCB294 /* ScoreDeckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDeckApp.swift; sourceTree = "<group>"; };
+		7B4F8AC9888BD88EF8B7D427 /* MasterConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterConsoleView.swift; sourceTree = "<group>"; };
+		7FD23350C290A45AD762BD1A /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
+		8B9BB992DF6E3FFD49233B18 /* StoredImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredImage.swift; sourceTree = "<group>"; };
+		8C0DEA4D5858B55A03A8029F /* NewEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventView.swift; sourceTree = "<group>"; };
+		95A3ADD6A4993A717B8F3EEF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AEAC95AC302773CA1A657C3E /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		C28EEE120B3DAE3CAD870D12 /* ScoreboardCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardCarouselView.swift; sourceTree = "<group>"; };
+		CBF0D4A7006428A77B5E4992 /* ScoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringView.swift; sourceTree = "<group>"; };
+		D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerField.swift; sourceTree = "<group>"; };
+		D4435D63D5FE83E0FA7FE4DA /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
+		D58A61191BD5E913D408CE6E /* ScoreDeck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ScoreDeck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B6332472CA31EA123615E7 /* RosterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterEditorView.swift; sourceTree = "<group>"; };
+		DD1342F44DE0AC89F832CC15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD40BEF5F65A365A5BA1929E /* ConnectionStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusBadge.swift; sourceTree = "<group>"; };
+		DE39C52B8436BCAF06DFB7B4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E64D4841568C0189B0985C25 /* ScoreDeckAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDeckAI.swift; sourceTree = "<group>"; };
+		EB2CE058896D23B48D5DF61C /* AguaDesign */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AguaDesign; path = ../../../../Xcode/Aguach1leLabs/Packages/AguaDesign; sourceTree = SOURCE_ROOT; };
+		F433BF4F46967B805C75353E /* MultipeerTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerTransport.swift; sourceTree = "<group>"; };
+		F7EF7E2E88856F7A05D17150 /* EventSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSession.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E93C0BB8DBF01182D8D40E03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F531F30DE3C0FF2745490036 /* XvaluappCore in Frameworks */,
+				5DA2FB4C57B0E7AC4E608CFC /* AguaDesign in Frameworks */,
+				F952405632B09949570C78F1 /* AguaAI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00A89808CD486229C4ACB648 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6BB7C8A00386BFCE260196A5 /* Assets.xcassets */,
+				DD40BEF5F65A365A5BA1929E /* ConnectionStatusBadge.swift */,
+				AEAC95AC302773CA1A657C3E /* DemoData.swift */,
+				55C9E3829F0663EED1610415 /* EventDetailView.swift */,
+				032829FDFC9E512B6D03F01F /* EventListView.swift */,
+				F7EF7E2E88856F7A05D17150 /* EventSession.swift */,
+				D4435D63D5FE83E0FA7FE4DA /* FlagImage.swift */,
+				D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */,
+				DD1342F44DE0AC89F832CC15 /* Info.plist */,
+				7B4F8AC9888BD88EF8B7D427 /* MasterConsoleView.swift */,
+				F433BF4F46967B805C75353E /* MultipeerTransport.swift */,
+				8C0DEA4D5858B55A03A8029F /* NewEventView.swift */,
+				95A3ADD6A4993A717B8F3EEF /* PrivacyInfo.xcprivacy */,
+				40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */,
+				D5B6332472CA31EA123615E7 /* RosterEditorView.swift */,
+				C28EEE120B3DAE3CAD870D12 /* ScoreboardCarouselView.swift */,
+				E64D4841568C0189B0985C25 /* ScoreDeckAI.swift */,
+				796B6138BD637407A6BCB294 /* ScoreDeckApp.swift */,
+				CBF0D4A7006428A77B5E4992 /* ScoringView.swift */,
+				DE39C52B8436BCAF06DFB7B4 /* SettingsView.swift */,
+				7FD23350C290A45AD762BD1A /* StandingsView.swift */,
+				8B9BB992DF6E3FFD49233B18 /* StoredImage.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		24794BCAAE5EAB75921171A3 = {
+			isa = PBXGroup;
+			children = (
+				5E6B38F5CD7274FCF1363A10 /* Packages */,
+				00A89808CD486229C4ACB648 /* Sources */,
+				EA133DE8E66C7CEB05A9AE40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E6B38F5CD7274FCF1363A10 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7525CAA4D597F70DE7526031 /* AguaAI */,
+				EB2CE058896D23B48D5DF61C /* AguaDesign */,
+				75C63C8187BE29277837AAD8 /* XvaluappCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		EA133DE8E66C7CEB05A9AE40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D58A61191BD5E913D408CE6E /* ScoreDeck.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A1E9BD05BD98FE79CCF17B3 /* ScoreDeck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 166B07BE489871CB3A6C0AF6 /* Build configuration list for PBXNativeTarget "ScoreDeck" */;
+			buildPhases = (
+				3C28C8E3CE8A3A9E68BB788A /* Sources */,
+				DB09F896DA1EE04AA3395999 /* Resources */,
+				E93C0BB8DBF01182D8D40E03 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScoreDeck;
+			packageProductDependencies = (
+				D4E07ECA81A5CF9B336624AD /* XvaluappCore */,
+				78474765EA16CED6559C5D3C /* AguaDesign */,
+				CCF274B73DB044936FAB84FC /* AguaAI */,
+			);
+			productName = ScoreDeck;
+			productReference = D58A61191BD5E913D408CE6E /* ScoreDeck.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54EDF0B23D33A67564ECC3B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 4E3C637C9541CD650DDE9DB2 /* Build configuration list for PBXProject "ScoreDeck" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 24794BCAAE5EAB75921171A3;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				49A101917A0EBC47E82EF544 /* XCLocalSwiftPackageReference "../../../../Xcode/Aguach1leLabs/Packages/AguaAI" */,
+				4F9145C19AE22D446C702F21 /* XCLocalSwiftPackageReference "../../../../Xcode/Aguach1leLabs/Packages/AguaDesign" */,
+				0C302E65CB34856C63024060 /* XCLocalSwiftPackageReference "../XvaluappCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EA133DE8E66C7CEB05A9AE40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A1E9BD05BD98FE79CCF17B3 /* ScoreDeck */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB09F896DA1EE04AA3395999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95B907F10FADBF350E6C4AE6 /* Assets.xcassets in Resources */,
+				FAB84B6DB8F59DC16C56DCF9 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C28C8E3CE8A3A9E68BB788A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				310DC0DED383AFF3FC3EB10C /* ConnectionStatusBadge.swift in Sources */,
+				9CA1F21C905BF2C35F628CC9 /* DemoData.swift in Sources */,
+				329C4FAF6F8CD960F7D744AB /* EventDetailView.swift in Sources */,
+				24F694E3A7D491AC897CA4B8 /* EventListView.swift in Sources */,
+				80D3BDE9D0AA1D844E6F7601 /* EventSession.swift in Sources */,
+				B07B13DF711BC3B588A7FDA3 /* FlagImage.swift in Sources */,
+				BB4785E450990984EAD1A756 /* ImagePickerField.swift in Sources */,
+				D5C5DB8F16D0E2B839A36D29 /* MasterConsoleView.swift in Sources */,
+				453154BAE9E26F21017BB5A7 /* MultipeerTransport.swift in Sources */,
+				18B53A547508FF5A55682E3C /* NewEventView.swift in Sources */,
+				F54037F482317E85A3D5A87E /* RoleSelectionView.swift in Sources */,
+				0EDAB7796F6F24771CD8F803 /* RosterEditorView.swift in Sources */,
+				BD4304F6FA3773BB605D4FC0 /* ScoreDeckAI.swift in Sources */,
+				3F563863DA57DCE7645A1F3D /* ScoreDeckApp.swift in Sources */,
+				8FB32F4250FD4B6E309EE932 /* ScoreboardCarouselView.swift in Sources */,
+				AF7378C1568E1F7C055EE9B4 /* ScoringView.swift in Sources */,
+				F7CF0E6FC8BD2E4A4D267574 /* SettingsView.swift in Sources */,
+				40C81BFA14A037A99FDC8010 /* StandingsView.swift in Sources */,
+				80B41996CFAB887A1196B6DC /* StoredImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		36EF4285D3C2E87582723DCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E4D81517E98455084C30CB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aguach1leLabs.ScoreDeck;
+				PRODUCT_NAME = ScoreDeck;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		77DD533CD103D227DA3F7CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aguach1leLabs.ScoreDeck;
+				PRODUCT_NAME = ScoreDeck;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBA403E85BEED733F1945373 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		166B07BE489871CB3A6C0AF6 /* Build configuration list for PBXNativeTarget "ScoreDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E4D81517E98455084C30CB4 /* Debug */,
+				77DD533CD103D227DA3F7CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4E3C637C9541CD650DDE9DB2 /* Build configuration list for PBXProject "ScoreDeck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EF4285D3C2E87582723DCB /* Debug */,
+				CBA403E85BEED733F1945373 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0C302E65CB34856C63024060 /* XCLocalSwiftPackageReference "../XvaluappCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../XvaluappCore;
+		};
+		49A101917A0EBC47E82EF544 /* XCLocalSwiftPackageReference "../../../../Xcode/Aguach1leLabs/Packages/AguaAI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../../Xcode/Aguach1leLabs/Packages/AguaAI;
+		};
+		4F9145C19AE22D446C702F21 /* XCLocalSwiftPackageReference "../../../../Xcode/Aguach1leLabs/Packages/AguaDesign" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../../Xcode/Aguach1leLabs/Packages/AguaDesign;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		78474765EA16CED6559C5D3C /* AguaDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AguaDesign;
+		};
+		CCF274B73DB044936FAB84FC /* AguaAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AguaAI;
+		};
+		D4E07ECA81A5CF9B336624AD /* XvaluappCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XvaluappCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 54EDF0B23D33A67564ECC3B7 /* Project object */;
+}

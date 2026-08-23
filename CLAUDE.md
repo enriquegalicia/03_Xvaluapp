@@ -292,6 +292,60 @@ this repo).
   (the `@main` entry point — renamed alongside the app itself; not to be
   confused with `XvaluappCore`, the domain-logic package it depends on).
 
+### Localization (English + Spanish)
+
+Two String Catalogs in `Sources/`: `Localizable.xcstrings` (every UI
+string — buttons, labels, alerts, section headers) and `InfoPlist.xcstrings`
+(just `NSLocalNetworkUsageDescription`, via Apple's Xcode-15+ mechanism for
+localizing plist values independently of `GENERATE_INFOPLIST_FILE`).
+`project.yml` declares `CFBundleLocalizations: [en, es]` and
+`developmentLanguage: en`; `xcodegen generate` picked both languages up
+into `knownRegions` in the generated project automatically by parsing the
+catalogs, so nothing needed hand-patching there.
+
+Getting this actually correct meant fixing a few real gotchas, not just
+adding a translation file:
+- **`String`-typed view params silently skip catalog lookup even when
+  every call site passes a literal** — lookup is resolved by the
+  parameter's *static type* (`LocalizedStringKey`), not by whether the
+  caller happened to write a literal. Found and fixed in
+  `ImagePickerField.label` and `RosterSection`/`NameSection`'s `title`.
+- **`RosterSection`/`NameSection`'s old `"Add \(title.dropLast())"` trick**
+  (deriving a singular add-button label by chopping the last character off
+  the plural section title) silently produced "Categorie" for
+  "Categories" even in English, and has no equivalent in Spanish at all —
+  replaced with an explicit `addLabel` parameter at every call site.
+- **Dynamic runtime strings that still need catalog lookup** — country
+  names (`Countries.named(...)`, English-only in `XvaluappCore`) and
+  `StandingsView`'s `title` (doubles as a translatable "Standings"/
+  "Overall" label *and* an untranslatable user-typed category name,
+  depending on caller) — both wrapped in `LocalizedStringKey(...)` at the
+  display site, which resolves a catalog match when one exists and falls
+  back to showing the raw string unchanged when it doesn't (so an
+  arbitrary category name a user typed passes through safely).
+- **Data that's only ever localized once** — the demo event's category
+  names (`DemoData.swift`) and the "Participant N"/"Judge N"/"Category N"
+  placeholder names `NewEventView` fills in for a blank name field are
+  real `Participant`/`Judge`/`ScoringCategory.name` data, not UI chrome —
+  once saved they're just a string like any user-typed name. Both use
+  `String(localized:)` at creation time (matching the device's language
+  then) rather than trying to re-translate stored data on every render.
+- **`AguaAI`'s own error copy is English-only** (`AIServiceError`'s
+  `errorDescription`, a shared package with no localization of its own) —
+  `ImagePickerField` catches `AIServiceError` specifically and remaps it
+  to a localized string rather than displaying `.localizedDescription`
+  directly, without touching `AguaAI` itself (a shared-package copy fix
+  would affect every other app depending on it — bigger, separate change
+  nobody's asked for). Foundation-origin errors (`JSONEventStore`'s file
+  I/O, `JSONDecoder`) are left as `.localizedDescription` as-is — those
+  *are* OS-localized automatically, unlike `AguaAI`'s hand-written text.
+
+`APP_STORE_LISTING.md` has the App Store Connect side too — full English
+and Spanish drafts (name/subtitle/promotional text/description/keywords),
+since that's a separate thing from the in-app catalog: Apple lets you
+localize the Store listing itself independently, under App Information →
+Localizations in App Store Connect.
+
 App Store compliance done so far: the 1024×1024 marketing icon already
 existed; `PrivacyInfo.xcprivacy` now declares no tracking, no collected
 data, and no required-reason API usage (accurate — the app doesn't call
@@ -301,7 +355,9 @@ color asset, matching `AguaColor.bgPrimary`) instead of a blank white
 screen; `AccentColor` now matches the chosen amber accent exactly;
 `ITSAppUsesNonExemptEncryption: false` skips the encryption questionnaire
 on upload; `APP_STORE_LISTING.md` has draft name/subtitle/description/
-keywords/category copy ready to paste into App Store Connect.
+keywords/category copy, in English and Spanish, ready to paste into App
+Store Connect; the app itself is localized into English and Spanish too
+(see "Localization" above) — both were done in the same pass, 2026-08-23.
 
 Still open: `ScoreDeckApp.swift`'s one-time `try! JSONEventStore(directory:)`
 at launch is left as-is (documented as intentional — there's no recovery

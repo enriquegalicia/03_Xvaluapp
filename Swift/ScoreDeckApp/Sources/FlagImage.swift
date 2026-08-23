@@ -41,13 +41,18 @@ struct CountryPicker: View {
                 Button {
                     selection = country.code
                 } label: {
-                    Label(country.name, systemImage: selection == country.code ? "checkmark" : "")
+                    // `country.name` is a runtime String from XvaluappCore
+                    // (English only there — see Countries.swift), not a
+                    // literal, so it needs an explicit LocalizedStringKey
+                    // wrap to hit the catalog instead of silently skipping
+                    // lookup the way `Label(country.name, ...)` would.
+                    Label(LocalizedStringKey(country.name), systemImage: selection == country.code ? "checkmark" : "")
                 }
             }
         } label: {
             HStack {
                 FlagImage(countryCode: selection, size: 18)
-                Text(Countries.named(selection))
+                Text(LocalizedStringKey(Countries.named(selection)))
                     .foregroundStyle(.primary)
                 Spacer()
                 Image(systemName: "chevron.up.chevron.down")

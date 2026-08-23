@@ -53,7 +53,7 @@ struct SettingsView: View {
     private func saveKey() {
         let trimmed = keyInput.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.hasPrefix("sk-") else {
-            feedback = "That doesn't look like an OpenAI key — it should start with sk-."
+            feedback = String(localized: "That doesn't look like an OpenAI key — it should start with sk-.")
             return
         }
         do {

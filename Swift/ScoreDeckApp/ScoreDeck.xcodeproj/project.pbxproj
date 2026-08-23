@@ -26,6 +26,8 @@
 		BB4785E450990984EAD1A756 /* ImagePickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */; };
 		BD4304F6FA3773BB605D4FC0 /* ScoreDeckAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64D4841568C0189B0985C25 /* ScoreDeckAI.swift */; };
 		D5C5DB8F16D0E2B839A36D29 /* MasterConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F8AC9888BD88EF8B7D427 /* MasterConsoleView.swift */; };
+		EFB15BC954B68EF719AB5106 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 6741A1947C8AE7E56379788A /* InfoPlist.xcstrings */; };
+		F19963975D72499B688611D0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1258814DA064006DB47B3F28 /* Localizable.xcstrings */; };
 		F531F30DE3C0FF2745490036 /* XvaluappCore in Frameworks */ = {isa = PBXBuildFile; productRef = D4E07ECA81A5CF9B336624AD /* XvaluappCore */; };
 		F54037F482317E85A3D5A87E /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */; };
 		F7CF0E6FC8BD2E4A4D267574 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE39C52B8436BCAF06DFB7B4 /* SettingsView.swift */; };
@@ -35,8 +37,10 @@
 
 /* Begin PBXFileReference section */
 		032829FDFC9E512B6D03F01F /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		1258814DA064006DB47B3F28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
 		55C9E3829F0663EED1610415 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		6741A1947C8AE7E56379788A /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		6BB7C8A00386BFCE260196A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7525CAA4D597F70DE7526031 /* AguaAI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AguaAI; path = ../../../../Xcode/Aguach1leLabs/Packages/AguaAI; sourceTree = SOURCE_ROOT; };
 		75C63C8187BE29277837AAD8 /* XvaluappCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XvaluappCore; path = ../XvaluappCore; sourceTree = SOURCE_ROOT; };
@@ -88,6 +92,8 @@
 				D4435D63D5FE83E0FA7FE4DA /* FlagImage.swift */,
 				D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */,
 				DD1342F44DE0AC89F832CC15 /* Info.plist */,
+				6741A1947C8AE7E56379788A /* InfoPlist.xcstrings */,
+				1258814DA064006DB47B3F28 /* Localizable.xcstrings */,
 				7B4F8AC9888BD88EF8B7D427 /* MasterConsoleView.swift */,
 				F433BF4F46967B805C75353E /* MultipeerTransport.swift */,
 				8C0DEA4D5858B55A03A8029F /* NewEventView.swift */,
@@ -174,6 +180,7 @@
 			knownRegions = (
 				Base,
 				en,
+				es,
 			);
 			mainGroup = 24794BCAAE5EAB75921171A3;
 			minimizedProjectReferenceProxies = 1;
@@ -198,6 +205,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				95B907F10FADBF350E6C4AE6 /* Assets.xcassets in Resources */,
+				EFB15BC954B68EF719AB5106 /* InfoPlist.xcstrings in Resources */,
+				F19963975D72499B688611D0 /* Localizable.xcstrings in Resources */,
 				FAB84B6DB8F59DC16C56DCF9 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

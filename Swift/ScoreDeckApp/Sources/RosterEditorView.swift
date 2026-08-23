@@ -43,7 +43,7 @@ struct RosterEditorView: View {
                     ImagePickerField(label: "Background", imageFilename: $backgroundImageFilename)
                 }
 
-                RosterSection(title: "Participants", items: $participants) {
+                RosterSection(title: "Participants", addLabel: "Add Participant", items: $participants) {
                     RosterDraft(name: "", countryCode: Countries.all.first?.code ?? "USA")
                 } row: { $item in
                     VStack(alignment: .leading, spacing: 8) {
@@ -56,8 +56,8 @@ struct RosterEditorView: View {
                     }
                 }
 
-                NameSection(title: "Judges", items: $judges)
-                NameSection(title: "Categories", items: $categories)
+                NameSection(title: "Judges", addLabel: "Add Judge", items: $judges)
+                NameSection(title: "Categories", addLabel: "Add Category", items: $categories)
             }
             .navigationTitle("Edit Roster")
             .toolbar {

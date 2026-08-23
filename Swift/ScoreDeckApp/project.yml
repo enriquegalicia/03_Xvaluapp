@@ -1,6 +1,7 @@
 name: ScoreDeck
 options:
   bundleIdPrefix: com.aguach1leLabs
+  developmentLanguage: en
   deploymentTarget:
     iOS: "17.0"
 configs:
@@ -43,6 +44,13 @@ targets:
         # own required AES session encryption, both exempt. Skips the "does
         # your app use encryption" prompt on every App Store Connect upload.
         ITSAppUsesNonExemptEncryption: false
+        CFBundleDevelopmentRegion: en
+        # Actual values live in InfoPlist.xcstrings per language; this is
+        # the development-region fallback GENERATE_INFOPLIST_FILE: NO still
+        # needs baked into the base Info.plist.
+        CFBundleLocalizations:
+          - en
+          - es
         NSLocalNetworkUsageDescription: "ScoreDeck uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
         NSBonjourServices:
           - _scoredeck-sync._tcp

@@ -37,7 +37,9 @@ struct EventDetailView: View {
                 Button("Accept") { session.transport?.acceptPendingInvitation() }
                 Button("Decline", role: .cancel) { session.transport?.declinePendingInvitation() }
             } message: {
-                Text("\"\(session.transport?.pendingInvitation?.peerID.displayName ?? "A device")\" wants to connect to this event.")
+                let peerName = session.transport?.pendingInvitation?.peerID.displayName
+                    ?? String(localized: "A device")
+                Text("\"\(peerName)\" wants to connect to this event.")
             }
     }
 

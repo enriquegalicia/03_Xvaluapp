@@ -1,3 +1,4 @@
+import Foundation
 import XvaluappCore
 
 /// A seed event for trying the app end to end, in the same spirit as the
@@ -23,9 +24,13 @@ enum DemoData {
                 Judge(id: 5, name: "L. Okafor"),
             ],
             categories: [
-                ScoringCategory(id: 1, name: "Difficulty"),
-                ScoringCategory(id: 2, name: "Execution"),
-                ScoringCategory(id: 3, name: "Style"),
+                // Localized at creation time, not display time — these become
+                // real ScoringCategory.name data a judge picks from, not UI
+                // chrome, so they only get one chance to match the device's
+                // language: right now, when the demo event is added.
+                ScoringCategory(id: 1, name: String(localized: "Difficulty")),
+                ScoringCategory(id: 2, name: String(localized: "Execution")),
+                ScoringCategory(id: 3, name: String(localized: "Style")),
             ],
             heatSize: 4,
             finalistCount: 3

@@ -13,7 +13,11 @@ import AguaAI
 /// process and only ever hands back what the user explicitly selects, so no
 /// `NSPhotoLibraryUsageDescription` is needed at all.
 struct ImagePickerField: View {
-    let label: String
+    /// `LocalizedStringKey`, not `String` — a `String`-typed property loses
+    /// automatic catalog lookup even when every call site passes a literal,
+    /// since the lookup is resolved by the parameter's static type, not by
+    /// how the caller wrote it.
+    let label: LocalizedStringKey
     @Binding var imageFilename: String?
 
     @State private var photosItem: PhotosPickerItem?
@@ -93,7 +97,7 @@ struct ImagePickerField: View {
         do {
             guard let data = try await item.loadTransferable(type: Data.self),
                   let uiImage = UIImage(data: data) else {
-                errorText = "Couldn't read that photo."
+                errorText = String(localized: "Couldn't read that photo.")
                 return
             }
             imageFilename = try imageStore.save(uiImage)
@@ -112,12 +116,34 @@ struct ImagePickerField: View {
                 prompt: "\(prompt). \(ScoreDeckAI.styleSuffix)"
             )
             guard let uiImage = UIImage(data: data) else {
-                errorText = "The AI didn't return a usable image."
+                errorText = String(localized: "The AI didn't return a usable image.")
                 return
             }
             imageFilename = try imageStore.save(uiImage)
+        } catch let error as AIServiceError {
+            // AguaAI's own error copy is English-only static text (it's a
+            // shared package with no localization infrastructure of its
+            // own) — remapped here rather than touched there, since fixing
+            // that for every app that depends on it is a bigger, separate
+            // change nobody's asked for.
+            errorText = Self.localizedMessage(for: error)
         } catch {
             errorText = error.localizedDescription
+        }
+    }
+
+    private static func localizedMessage(for error: AIServiceError) -> String {
+        switch error {
+        case .missingAPIKey:
+            String(localized: "No OpenAI API key yet — add one in Settings → AI.")
+        case .modelNotDownloaded:
+            String(localized: "The on-device model is still downloading.")
+        case .backendUnavailable:
+            String(localized: "AI generation is unavailable right now.")
+        case .requestFailed:
+            String(localized: "That request failed. Check your connection and try again.")
+        case .invalidResponse:
+            String(localized: "The AI response wasn't in the expected format.")
         }
     }
 }

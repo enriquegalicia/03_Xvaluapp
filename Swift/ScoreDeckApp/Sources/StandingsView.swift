@@ -11,6 +11,12 @@ struct StandingsView: View {
     /// shows just that category's leaderboard — what the Screen carousel
     /// rotates through one page at a time.
     var categoryID: Int? = nil
+    /// A plain `String`, not `LocalizedStringKey` — it doubles as a
+    /// category's own name (arbitrary user data, must NOT be translated)
+    /// when the carousel passes one in. Display sites below wrap it in
+    /// `LocalizedStringKey(...)` instead, which still resolves "Standings"/
+    /// "Overall" against the catalog but gracefully falls back to showing
+    /// a category name unchanged when nothing matches.
     var title: String = "Standings"
     /// The carousel embeds this view without a `NavigationStack`, so
     /// `.navigationTitle` alone wouldn't render anywhere — it shows an
@@ -24,7 +30,7 @@ struct StandingsView: View {
     var body: some View {
         List {
             if showsInlineTitle {
-                Text(title)
+                Text(LocalizedStringKey(title))
                     .font(.largeTitle.bold())
                     .frame(maxWidth: .infinity, alignment: .center)
                     .listRowSeparator(.hidden)
@@ -56,7 +62,7 @@ struct StandingsView: View {
 
                         VStack(alignment: .leading) {
                             Text(row.participant.name).font(.headline)
-                            Text(Countries.named(row.participant.countryCode))
+                            Text(LocalizedStringKey(Countries.named(row.participant.countryCode)))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -75,6 +81,6 @@ struct StandingsView: View {
         }
         .scrollContentBackground(.hidden)
         .background(AguaColor.bgPrimary)
-        .navigationTitle(title)
+        .navigationTitle(LocalizedStringKey(title))
     }
 }

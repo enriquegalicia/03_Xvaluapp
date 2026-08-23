@@ -34,7 +34,7 @@ struct NewEventView: View {
                     ImagePickerField(label: "Background", imageFilename: $backgroundImageFilename)
                 }
 
-                RosterSection(title: "Participants", items: $participants) {
+                RosterSection(title: "Participants", addLabel: "Add Participant", items: $participants) {
                     RosterDraft(name: "", countryCode: Countries.all.first?.code ?? "USA")
                 } row: { $item in
                     VStack(alignment: .leading, spacing: 8) {
@@ -47,8 +47,8 @@ struct NewEventView: View {
                     }
                 }
 
-                NameSection(title: "Judges", items: $judges)
-                NameSection(title: "Categories", items: $categories)
+                NameSection(title: "Judges", addLabel: "Add Judge", items: $judges)
+                NameSection(title: "Categories", addLabel: "Add Category", items: $categories)
             }
             .navigationTitle("New Event")
             .toolbar {
@@ -74,16 +74,16 @@ struct NewEventView: View {
             participants: participants.enumerated().map { index, draft in
                 Participant(
                     id: index + 1,
-                    name: draft.name.isEmpty ? "Participant \(index + 1)" : draft.name,
+                    name: draft.name.isEmpty ? String(localized: "Participant \(index + 1)") : draft.name,
                     countryCode: draft.countryCode,
                     imageFilename: draft.imageFilename
                 )
             },
             judges: judges.enumerated().map { index, draft in
-                Judge(id: index + 1, name: draft.name.isEmpty ? "Judge \(index + 1)" : draft.name)
+                Judge(id: index + 1, name: draft.name.isEmpty ? String(localized: "Judge \(index + 1)") : draft.name)
             },
             categories: categories.enumerated().map { index, draft in
-                ScoringCategory(id: index + 1, name: draft.name.isEmpty ? "Category \(index + 1)" : draft.name)
+                ScoringCategory(id: index + 1, name: draft.name.isEmpty ? String(localized: "Category \(index + 1)") : draft.name)
             },
             heatSize: heatSize,
             finalistCount: finalistCount
@@ -120,7 +120,13 @@ struct NameDraft: Identifiable {
 }
 
 struct RosterSection<Row: View>: View {
-    let title: String
+    let title: LocalizedStringKey
+    /// A singular label ("Add Participant") for the add button — kept as
+    /// its own parameter rather than derived from `title` (the old
+    /// `title.dropLast()` trick only coincidentally worked for regular
+    /// English plurals, silently produced "Categorie" for "Categories",
+    /// and has no equivalent rule in Spanish at all).
+    let addLabel: LocalizedStringKey
     @Binding var items: [RosterDraft]
     let makeNew: () -> RosterDraft
     @ViewBuilder let row: (Binding<RosterDraft>) -> Row
@@ -132,7 +138,7 @@ struct RosterSection<Row: View>: View {
             Button {
                 items.append(makeNew())
             } label: {
-                Label("Add \(title.dropLast())", systemImage: "plus")
+                Label(addLabel, systemImage: "plus")
             }
         } header: {
             Text(title)
@@ -141,7 +147,8 @@ struct RosterSection<Row: View>: View {
 }
 
 struct NameSection: View {
-    let title: String
+    let title: LocalizedStringKey
+    let addLabel: LocalizedStringKey
     @Binding var items: [NameDraft]
 
     var body: some View {
@@ -153,7 +160,7 @@ struct NameSection: View {
             Button {
                 items.append(NameDraft(name: ""))
             } label: {
-                Label("Add \(title.dropLast())", systemImage: "plus")
+                Label(addLabel, systemImage: "plus")
             }
         } header: {
             Text(title)

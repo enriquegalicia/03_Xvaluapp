@@ -359,16 +359,22 @@ keywords/category copy, in English and Spanish, ready to paste into App
 Store Connect; the app itself is localized into English and Spanish too
 (see "Localization" above) — both were done in the same pass, 2026-08-23.
 
+Every screen with a `List`/`Form` (`EventListView`, `SettingsView`,
+`ImagePickerField`'s AI-prompt sheet, `RosterEditorView`, `NewEventView`,
+`ScoringView`, `MasterConsoleView`, `StandingsView`) now sets
+`AguaColor.bgPrimary`/`.bgCard`/`.bgElevated` via `.scrollContentBackground
+(.hidden)` + `.listRowBackground(...)` instead of plain system grouped-list
+chrome (2026-08-23) — the app-wide dark background/amber tint were already
+set at the `WindowGroup` root, this closes the remaining gap where
+individual row/section backgrounds were still system gray instead of the
+token colors.
+
 Still open: `ScoreDeckApp.swift`'s one-time `try! JSONEventStore(directory:)`
 at launch is left as-is (documented as intentional — there's no recovery
 path if Application Support can't be created); no test target for the app
-layer; `RosterEditorView`/`NewEventView`/`ScoringView`/`MasterConsoleView`
-still use plain system `Form`/`List` styling rather than
-`AguaColor`/`.aguaCard()` throughout — `StandingsView` and the app-wide
-background/tint are done, the rest is a straightforward follow-up pass,
-not a redesign; `project.yml` still has no Development Team set (the
-bundle id itself, `com.aguach1leLabs.ScoreDeck`, is now settled — set
-2026-08-23 alongside the app's rename from "Xvaluapp"); screenshots and a
-hosted support/privacy-policy URL are needed before the App Store Connect
-listing can actually be submitted (see `APP_STORE_LISTING.md`) — both
-require a real device/simulator run, which this sandbox can't do.
+layer; `project.yml` still has no Development Team set (the bundle id
+itself, `com.aguach1leLabs.ScoreDeck`, is now settled — set 2026-08-23
+alongside the app's rename from "Xvaluapp"); screenshots and a hosted
+support/privacy-policy URL are needed before the App Store Connect listing
+can actually be submitted (see `APP_STORE_LISTING.md`) — both require a
+real device/simulator run, which this sandbox can't do.

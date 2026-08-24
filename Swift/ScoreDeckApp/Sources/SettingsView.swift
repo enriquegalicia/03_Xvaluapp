@@ -1,5 +1,6 @@
 import SwiftUI
 import AguaAI
+import AguaDesign
 
 /// BYOK (bring your own key) — same pattern as every other Aguach1leLabs
 /// app with cloud AI (see PlateSnap's `SettingsView`). The key never ships
@@ -44,7 +45,10 @@ struct SettingsView: View {
                 } footer: {
                     Text("Generating tournament banners and rider avatars uses OpenAI's image API with your own key, stored only in this device's Keychain. Without a key, you can still add photos from your library. Get a key at platform.openai.com/api-keys.")
                 }
+                .listRowBackground(AguaColor.bgCard)
             }
+            .scrollContentBackground(.hidden)
+            .background(AguaColor.bgPrimary)
             .navigationTitle("Settings")
             .onAppear { hasStoredKey = keyStore.read(.openAI) != nil }
         }

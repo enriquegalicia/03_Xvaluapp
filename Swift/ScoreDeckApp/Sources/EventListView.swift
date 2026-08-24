@@ -1,4 +1,5 @@
 import SwiftUI
+import AguaDesign
 import XvaluappCore
 
 /// Replaces `CreacionEventos`'s launcher screen: pick a saved event, or
@@ -67,9 +68,12 @@ struct EventListView: View {
                                     Label("Delete", systemImage: "trash")
                                 }
                             }
+                            .listRowBackground(AguaColor.bgCard)
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(AguaColor.bgPrimary)
             .navigationTitle("ScoreDeck")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

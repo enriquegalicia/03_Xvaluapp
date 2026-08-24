@@ -1,4 +1,5 @@
 import SwiftUI
+import AguaDesign
 import XvaluappCore
 
 /// Replaces `JudgePanel.m`'s `Desactivado:` admin console — a `UITextField`
@@ -24,6 +25,7 @@ struct MasterConsoleView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+            .listRowBackground(AguaColor.bgCard)
 
             Section("Score as Judge") {
                 ForEach(session.event.judges) { judge in
@@ -32,12 +34,14 @@ struct MasterConsoleView: View {
                     }
                 }
             }
+            .listRowBackground(AguaColor.bgCard)
 
             Section("Standings") {
                 NavigationLink("View Standings") {
                     StandingsView(session: session)
                 }
             }
+            .listRowBackground(AguaColor.bgCard)
 
             if let transport = session.transport {
                 Section("Connections") {
@@ -57,6 +61,7 @@ struct MasterConsoleView: View {
                         }
                     }
                 }
+                .listRowBackground(AguaColor.bgCard)
             }
 
             Section("Event Control") {
@@ -73,7 +78,10 @@ struct MasterConsoleView: View {
                     Label("Reset All Scores", systemImage: "trash")
                 }
             }
+            .listRowBackground(AguaColor.bgCard)
         }
+        .scrollContentBackground(.hidden)
+        .background(AguaColor.bgPrimary)
         .navigationTitle("Master Console")
         .confirmationDialog(
             "Reset all scores?",

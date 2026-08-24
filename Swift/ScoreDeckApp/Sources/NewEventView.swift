@@ -1,4 +1,5 @@
 import SwiftUI
+import AguaDesign
 import XvaluappCore
 
 /// Replaces `CreacionEventos.m`'s `NuevoEvento:` — fully commented out in
@@ -28,11 +29,13 @@ struct NewEventView: View {
                     Stepper("Heat size: \(heatSize)", value: $heatSize, in: 1...20)
                     Stepper("Finalists: \(finalistCount)", value: $finalistCount, in: 1...50)
                 }
+                .listRowBackground(AguaColor.bgCard)
 
                 Section("Branding") {
                     ImagePickerField(label: "Logo", imageFilename: $logoImageFilename)
                     ImagePickerField(label: "Background", imageFilename: $backgroundImageFilename)
                 }
+                .listRowBackground(AguaColor.bgCard)
 
                 RosterSection(title: "Participants", addLabel: "Add Participant", items: $participants) {
                     RosterDraft(name: "", countryCode: Countries.all.first?.code ?? "USA")
@@ -50,6 +53,8 @@ struct NewEventView: View {
                 NameSection(title: "Judges", addLabel: "Add Judge", items: $judges)
                 NameSection(title: "Categories", addLabel: "Add Category", items: $categories)
             }
+            .scrollContentBackground(.hidden)
+            .background(AguaColor.bgPrimary)
             .navigationTitle("New Event")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -143,6 +148,7 @@ struct RosterSection<Row: View>: View {
         } header: {
             Text(title)
         }
+        .listRowBackground(AguaColor.bgCard)
     }
 }
 
@@ -165,5 +171,6 @@ struct NameSection: View {
         } header: {
             Text(title)
         }
+        .listRowBackground(AguaColor.bgCard)
     }
 }

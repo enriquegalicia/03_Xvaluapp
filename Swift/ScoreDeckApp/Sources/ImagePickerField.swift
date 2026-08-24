@@ -2,6 +2,7 @@ import SwiftUI
 import PhotosUI
 import UIKit
 import AguaAI
+import AguaDesign
 
 /// Attaches a photo to an event or participant — pick one from the library,
 /// or generate one with AI in the shared Aguach1leLabs illustrated style
@@ -162,7 +163,10 @@ private struct AIPromptSheet: View {
                 } footer: {
                     Text("Uses your OpenAI key from Settings → AI. The Aguachilelabs illustrated style is applied automatically.")
                 }
+                .listRowBackground(AguaColor.bgCard)
             }
+            .scrollContentBackground(.hidden)
+            .background(AguaColor.bgPrimary)
             .navigationTitle("Generate with AI")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

@@ -1,4 +1,5 @@
 import SwiftUI
+import AguaDesign
 import XvaluappCore
 
 /// Replaces `JudgePanel.m`'s "Segundo Screen" (judge/rubro combo boxes +
@@ -49,8 +50,10 @@ struct ScoringView: View {
                     ParticipantAvatar(participant: participant, size: 22)
                 }
                 .tag(participant.id)
+                .listRowBackground(AguaColor.bgCard)
             }
             .listStyle(.plain)
+            .scrollContentBackground(.hidden)
             .frame(maxHeight: 220)
             .overlay {
                 if pendingParticipants.isEmpty {
@@ -62,6 +65,7 @@ struct ScoringView: View {
 
             keypad
         }
+        .aguaBackground()
         .navigationTitle(judge.name)
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -106,7 +110,7 @@ struct ScoringView: View {
         // width, the same "fit the screen" fix as the split-view change.
         .frame(maxWidth: 480)
         .frame(maxWidth: .infinity)
-        .background(.thinMaterial)
+        .background(AguaColor.bgElevated)
     }
 
     private func submit() {

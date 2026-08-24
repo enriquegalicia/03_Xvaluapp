@@ -1,4 +1,5 @@
 import SwiftUI
+import AguaDesign
 import XvaluappCore
 
 /// Add/remove participants (with a country flag), judges, and scoring
@@ -42,6 +43,7 @@ struct RosterEditorView: View {
                     ImagePickerField(label: "Logo", imageFilename: $logoImageFilename)
                     ImagePickerField(label: "Background", imageFilename: $backgroundImageFilename)
                 }
+                .listRowBackground(AguaColor.bgCard)
 
                 RosterSection(title: "Participants", addLabel: "Add Participant", items: $participants) {
                     RosterDraft(name: "", countryCode: Countries.all.first?.code ?? "USA")
@@ -59,6 +61,8 @@ struct RosterEditorView: View {
                 NameSection(title: "Judges", addLabel: "Add Judge", items: $judges)
                 NameSection(title: "Categories", addLabel: "Add Category", items: $categories)
             }
+            .scrollContentBackground(.hidden)
+            .background(AguaColor.bgPrimary)
             .navigationTitle("Edit Roster")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

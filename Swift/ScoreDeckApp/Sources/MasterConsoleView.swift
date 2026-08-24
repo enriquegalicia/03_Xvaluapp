@@ -43,6 +43,16 @@ struct MasterConsoleView: View {
             }
             .listRowBackground(AguaColor.bgCard)
 
+            Section("Add a Device") {
+                ShareLink(item: session.event, preview: SharePreview(session.event.name)) {
+                    Label("Export Event…", systemImage: "square.and.arrow.up")
+                }
+                Text("Share this with a brand-new device with no events on it yet — import it there, then invite it below once it shows up nearby.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .listRowBackground(AguaColor.bgCard)
+
             if let transport = session.transport {
                 Section("Connections") {
                     if transport.connectedPeers.isEmpty {

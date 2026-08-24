@@ -15,6 +15,7 @@
 		3F563863DA57DCE7645A1F3D /* ScoreDeckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B6138BD637407A6BCB294 /* ScoreDeckApp.swift */; };
 		40C81BFA14A037A99FDC8010 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD23350C290A45AD762BD1A /* StandingsView.swift */; };
 		453154BAE9E26F21017BB5A7 /* MultipeerTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F433BF4F46967B805C75353E /* MultipeerTransport.swift */; };
+		57FC5349AACB356380FF8F86 /* EventTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF8855C3742B6491678FF4 /* EventTransfer.swift */; };
 		5DA2FB4C57B0E7AC4E608CFC /* AguaDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 78474765EA16CED6559C5D3C /* AguaDesign */; };
 		80B41996CFAB887A1196B6DC /* StoredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BB992DF6E3FFD49233B18 /* StoredImage.swift */; };
 		80D3BDE9D0AA1D844E6F7601 /* EventSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EF7E2E88856F7A05D17150 /* EventSession.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		032829FDFC9E512B6D03F01F /* EventListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListView.swift; sourceTree = "<group>"; };
+		0BBF8855C3742B6491678FF4 /* EventTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTransfer.swift; sourceTree = "<group>"; };
 		1258814DA064006DB47B3F28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		40C7BB7B6B89C05B78625E9E /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
 		55C9E3829F0663EED1610415 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				55C9E3829F0663EED1610415 /* EventDetailView.swift */,
 				032829FDFC9E512B6D03F01F /* EventListView.swift */,
 				F7EF7E2E88856F7A05D17150 /* EventSession.swift */,
+				0BBF8855C3742B6491678FF4 /* EventTransfer.swift */,
 				D4435D63D5FE83E0FA7FE4DA /* FlagImage.swift */,
 				D3FC57CBF208F0281266BA49 /* ImagePickerField.swift */,
 				DD1342F44DE0AC89F832CC15 /* Info.plist */,
@@ -223,6 +226,7 @@
 				329C4FAF6F8CD960F7D744AB /* EventDetailView.swift in Sources */,
 				24F694E3A7D491AC897CA4B8 /* EventListView.swift in Sources */,
 				80D3BDE9D0AA1D844E6F7601 /* EventSession.swift in Sources */,
+				57FC5349AACB356380FF8F86 /* EventTransfer.swift in Sources */,
 				B07B13DF711BC3B588A7FDA3 /* FlagImage.swift in Sources */,
 				BB4785E450990984EAD1A756 /* ImagePickerField.swift in Sources */,
 				D5C5DB8F16D0E2B839A36D29 /* MasterConsoleView.swift in Sources */,

@@ -215,7 +215,8 @@ screen, `@Observable EventSession` as the glue layer, `MultipeerTransport`
 as the `MultipeerConnectivity` transport for `SyncMessage`:
 
 - `EventListView` — event picker/creator, with swipe/context-menu delete
-  (confirmed via `.confirmationDialog`) and rename.
+  (confirmed via `.confirmationDialog`), rename, and event export/import
+  (see "Adding a new device" below).
 - `RoleSelectionView` → `EventDetailView` — role gate (Judge/Master/Screen),
   replacing `CreacionEventos`'s role buttons + the `Accesado` NSUserDefaults
   flag.
@@ -242,6 +243,37 @@ crashing via `try!`; `MultipeerTransport` holds incoming invitations as
 `pendingInvitation` for the user to accept/decline instead of
 auto-accepting; `EventListView` now supports event delete (swipe/context
 menu, with a confirmation dialog) and rename.
+
+### Adding a new device to a running event
+
+Live Multipeer sync alone can't get a brand-new device into an event: the
+Master already pushes a `.fullEventSnapshot` to any peer the instant it
+connects (`EventSession.startNetworking`'s `onPeerConnected`), but
+`EventListView` only ever lists events already in *this* device's own
+`JSONEventStore` — reaching the role-selection/discovery screen at all
+requires an `Event` to already be open, and a fresh install has zero.
+Discovery itself is asymmetric too: only the Master browses
+(`transport.startBrowsing()`); Judge/Screen devices just advertise and
+wait to be invited, so a brand-new device can't proactively find a
+running event even if it had one open.
+
+Fixed (2026-08-23) with export/import, not by changing the discovery
+model: `Event` conforms to `Transferable` (`EventTransfer.swift`, app
+target only — `Transferable` needs `CoreTransferable`, a platform
+framework `XvaluappCore` deliberately stays clear of) via a
+`FileRepresentation` that encodes to a named `.json` temp file, so
+`ShareLink(item: event, ...)` works from both `EventListView`'s
+per-event context menu and `MasterConsoleView`'s new "Add a Device"
+section (exports the *live* event, useful mid-event). The brand-new
+device imports that file via `EventListView`'s toolbar → "Import
+Event…" (`.fileImporter`, decodes with the same `JSONDecoder` settings
+`JSONEventStore` uses) — it lands in the local store under the
+imported `Event`'s own `id`, so it's just another entry in the list at
+that point. From there the normal flow takes over: open it, pick
+Judge/Screen, and once the real Master discovers and invites that
+device, its `.fullEventSnapshot` overwrites the imported copy in place
+(same id → same local file, not a duplicate) rather than leaving stale
+imported data around.
 
 ### Imagery & branding
 

@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 import AguaDesign
 import XvaluappCore
 
@@ -25,6 +26,7 @@ struct EventListView: View {
     @State private var eventPendingRename: Event?
     @State private var renameText = ""
     @State private var showingSettings = false
+    @State private var showingImporter = false
 
     var body: some View {
         NavigationSplitView {
@@ -62,6 +64,9 @@ struct EventListView: View {
                                 } label: {
                                     Label("Rename…", systemImage: "pencil")
                                 }
+                                ShareLink(item: event, preview: SharePreview(event.name)) {
+                                    Label("Export Event…", systemImage: "square.and.arrow.up")
+                                }
                                 Button(role: .destructive) {
                                     eventPendingDelete = event
                                 } label: {
@@ -95,6 +100,11 @@ struct EventListView: View {
                         } label: {
                             Label("Add Demo Event", systemImage: "flag.checkered")
                         }
+                        Button {
+                            showingImporter = true
+                        } label: {
+                            Label("Import Event…", systemImage: "square.and.arrow.down")
+                        }
                     } label: {
                         Label("Add", systemImage: "plus")
                     }
@@ -108,6 +118,9 @@ struct EventListView: View {
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView()
+            }
+            .fileImporter(isPresented: $showingImporter, allowedContentTypes: [.json]) { result in
+                importEvent(from: result)
             }
         } detail: {
             NavigationStack {
@@ -185,6 +198,32 @@ struct EventListView: View {
         do {
             try store.save(renamed)
             load()
+        } catch {
+            loadError = error.localizedDescription
+        }
+    }
+
+    /// Imports a `.json` file exported via `ShareLink` on another device
+    /// (see `EventTransfer.swift`) — the actual fix for a brand-new device
+    /// having no way to reach a running event at all, since `EventListView`
+    /// only ever shows events already in *this* device's local store and
+    /// picking a role/starting Multipeer discovery requires one already
+    /// open. Saved under the imported `Event`'s own id, so if this device
+    /// later joins the live session as Judge/Screen, the Master's current
+    /// `.fullEventSnapshot` correctly overwrites this same local file
+    /// instead of creating a duplicate.
+    private func importEvent(from result: Result<URL, Error>) {
+        do {
+            let url = try result.get()
+            let didAccess = url.startAccessingSecurityScopedResource()
+            defer { if didAccess { url.stopAccessingSecurityScopedResource() } }
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let event = try decoder.decode(Event.self, from: data)
+            try store.save(event)
+            load()
+            selectedEventID = event.id
         } catch {
             loadError = error.localizedDescription
         }

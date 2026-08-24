@@ -1,726 +1,2081 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "%lld participants · %lld judges · %lld categories" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld participants · %lld judges · %lld categories" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "%lld participantes · %lld jueces · %lld categorías" } }
-      }
-    },
-    "\"%@\" wants to connect to this event." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "\"%@\" wants to connect to this event." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "\"%@\" quiere conectarse a este evento." } }
-      }
-    },
-    "A device" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "A device" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Un dispositivo" } }
-      }
-    },
-    "Accept" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Accept" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aceptar" } }
-      }
-    },
-    "Add" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar" } }
-      }
-    },
-    "Add Category" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Category" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar categoría" } }
-      }
-    },
-    "Add Demo Event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Demo Event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar evento de demostración" } }
-      }
-    },
-    "Add Image" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Image" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar imagen" } }
-      }
-    },
-    "Add Judge" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Judge" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar juez" } }
-      }
-    },
-    "Add Participant" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Participant" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agregar participante" } }
-      }
-    },
-    "Add the demo event to try scoring end to end." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add the demo event to try scoring end to end." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Agrega el evento de demostración para probar la calificación de principio a fin." } }
-      }
-    },
-    "Advance to Finals" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advance to Finals" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Avanzar a la final" } }
-      }
-    },
-    "Advance to Finals (Top %lld)" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advance to Finals (Top %lld)" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Avanzar a la final (Top %lld)" } }
-      }
-    },
-    "Advance to finals?" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Advance to finals?" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Avanzar a la final?" } }
-      }
-    },
-    "AI generation is unavailable right now." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "AI generation is unavailable right now." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La generación con IA no está disponible en este momento." } }
-      }
-    },
-    "All Scored" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "All Scored" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Todos calificados" } }
-      }
-    },
-    "Background" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Background" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Fondo" } }
-      }
-    },
-    "Branding" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Branding" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Identidad visual" } }
-      }
-    },
-    "Cancel" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cancelar" } }
-      }
-    },
-    "Category" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Category" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Categoría" } }
-      }
-    },
-    "Category %lld" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Category %lld" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Categoría %lld" } }
-      }
-    },
-    "Categories" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Categories" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Categorías" } }
-      }
-    },
-    "Change Image" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Change Image" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Cambiar imagen" } }
-      }
-    },
-    "Choose Photo" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose Photo" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elegir foto" } }
-      }
-    },
-    "Choose an event from the list to start judging or view standings." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose an event from the list to start judging or view standings." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elige un evento de la lista para comenzar a calificar o ver la clasificación." } }
-      }
-    },
-    "Connected to %@" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Connected to %@" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Conectado a %@" } }
-      }
-    },
-    "Connection Request" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Connection Request" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Solicitud de conexión" } }
-      }
-    },
-    "Connections" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Connections" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Conexiones" } }
-      }
-    },
-    "Continue" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Continue" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Continuar" } }
-      }
-    },
-    "Couldn't Save" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't Save" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo guardar" } }
-      }
-    },
-    "Couldn't create event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't create event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo crear el evento" } }
-      }
-    },
-    "Couldn't load events" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't load events" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudieron cargar los eventos" } }
-      }
-    },
-    "Couldn't read that photo." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't read that photo." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "No se pudo leer esa foto." } }
-      }
-    },
-    "Create" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Crear" } }
-      }
-    },
-    "Decline" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Decline" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rechazar" } }
-      }
-    },
-    "Delete" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Eliminar" } }
-      }
-    },
-    "Delete \"%@\"?" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete \"%@\"?" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Eliminar \"%@\"?" } }
-      }
-    },
-    "Describe what to generate…" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Describe what to generate…" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Describe qué generar…" } }
-      }
-    },
-    "Difficulty" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Difficulty" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Dificultad" } }
-      }
-    },
-    "Edit Participants, Judges & Categories" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Participants, Judges & Categories" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Editar participantes, jueces y categorías" } }
-      }
-    },
-    "Edit Roster" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Roster" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Editar plantilla" } }
-      }
-    },
-    "Event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Evento" } }
-      }
-    },
-    "Event Control" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event Control" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Control del evento" } }
-      }
-    },
-    "Event name" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Event name" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombre del evento" } }
-      }
-    },
-    "Every participant has a %@ score." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Every participant has a %@ score." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Todos los participantes tienen una calificación de %@." } }
-      }
-    },
-    "Execution" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Execution" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ejecución" } }
-      }
-    },
-    "Finalists: %lld" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Finalists: %lld" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Finalistas: %lld" } }
-      }
-    },
-    "Generate" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Generate" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Generar" } }
-      }
-    },
-    "Generate with AI" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Generate with AI" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Generar con IA" } }
-      }
-    },
-    "Generate with AI…" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Generate with AI…" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Generar con IA…" } }
-      }
-    },
-    "Heat size: %lld" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Heat size: %lld" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Tamaño de ronda: %lld" } }
-      }
-    },
-    "Judge" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Judge" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Juez" } }
-      }
-    },
-    "Judge %lld" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Judge %lld" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Juez %lld" } }
-      }
-    },
-    "Judges" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Judges" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Jueces" } }
-      }
-    },
-    "Key saved" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Key saved" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Clave guardada" } }
-      }
-    },
-    "Logo" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Logo" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Logotipo" } }
-      }
-    },
-    "Master" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Master" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Maestro" } }
-      }
-    },
-    "Master Console" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Master Console" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Consola del maestro" } }
-      }
-    },
-    "Name" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Name" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nombre" } }
-      }
-    },
-    "New Event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "New Event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nuevo evento" } }
-      }
-    },
-    "New Event…" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "New Event…" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Nuevo evento…" } }
-      }
-    },
-    "No Events Yet" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No Events Yet" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aún no hay eventos" } }
-      }
-    },
-    "No OpenAI API key yet — add one in Settings → AI." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No OpenAI API key yet — add one in Settings → AI." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aún no hay clave de OpenAI: agrega una en Ajustes → IA." } }
-      }
-    },
-    "No Scores Yet" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No Scores Yet" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aún no hay calificaciones" } }
-      }
-    },
-    "No devices connected yet" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No devices connected yet" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aún no hay dispositivos conectados" } }
-      }
-    },
-    "OK" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Aceptar" } }
-      }
-    },
-    "OpenAI API Key" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "OpenAI API Key" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Clave de API de OpenAI" } }
-      }
-    },
-    "Overall" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Overall" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "General" } }
-      }
-    },
-    "Participant %lld" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Participant %lld" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Participante %lld" } }
-      }
-    },
-    "Participants" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Participants" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Participantes" } }
-      }
-    },
-    "Paste your OpenAI API key (sk-...)" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Paste your OpenAI API key (sk-...)" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pega tu clave de API de OpenAI (sk-...)" } }
-      }
-    },
-    "Photo" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Photo" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Foto" } }
-      }
-    },
-    "Pick which judge is scoring on this device." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick which judge is scoring on this device." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Elige qué juez está calificando en este dispositivo." } }
-      }
-    },
-    "Remove" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Quitar" } }
-      }
-    },
-    "Rename" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rename" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Renombrar" } }
-      }
-    },
-    "Rename Event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rename Event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Renombrar evento" } }
-      }
-    },
-    "Rename…" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rename…" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Renombrar…" } }
-      }
-    },
-    "Replaces the roster with the top %lld by current average and clears scores for the new round, on every connected device." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Replaces the roster with the top %lld by current average and clears scores for the new round, on every connected device." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reemplaza la plantilla con los %lld mejores según el promedio actual y borra las calificaciones para la nueva ronda, en todos los dispositivos conectados." } }
-      }
-    },
-    "Reset All Scores" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reset All Scores" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reiniciar todas las calificaciones" } }
-      }
-    },
-    "Reset Scores" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reset Scores" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reiniciar calificaciones" } }
-      }
-    },
-    "Reset all scores?" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reset all scores?" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Reiniciar todas las calificaciones?" } }
-      }
-    },
-    "Role" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Role" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Rol" } }
-      }
-    },
-    "Roster" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Roster" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Plantilla" } }
-      }
-    },
-    "Save" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Guardar" } }
-      }
-    },
-    "Save Key" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save Key" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Guardar clave" } }
-      }
-    },
-    "Score as Judge" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Score as Judge" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Calificar como juez" } }
-      }
-    },
-    "Screen" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Screen" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Pantalla" } }
-      }
-    },
-    "Select an Event" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Select an Event" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Selecciona un evento" } }
-      }
-    },
-    "Select a judge" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Select a judge" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Selecciona un juez" } }
-      }
-    },
-    "Settings" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
-      }
-    },
-    "Standings" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Standings" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Clasificación" } }
-      }
-    },
-    "Standings appear once at least one judge submits a score." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Standings appear once at least one judge submits a score." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La clasificación aparece en cuanto un juez envía una calificación." } }
-      }
-    },
-    "Style" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Style" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Estilo" } }
-      }
-    },
-    "Submit Score" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Submit Score" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Enviar calificación" } }
-      }
-    },
-    "That doesn't look like an OpenAI key — it should start with sk-." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "That doesn't look like an OpenAI key — it should start with sk-." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Eso no parece una clave de OpenAI: debería comenzar con sk-." } }
-      }
-    },
-    "That request failed. Check your connection and try again." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "That request failed. Check your connection and try again." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esa solicitud falló. Revisa tu conexión e inténtalo de nuevo." } }
-      }
-    },
-    "The AI didn't return a usable image." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The AI didn't return a usable image." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La IA no devolvió una imagen utilizable." } }
-      }
-    },
-    "The AI response wasn't in the expected format." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The AI response wasn't in the expected format." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "La respuesta de la IA no tuvo el formato esperado." } }
-      }
-    },
-    "The on-device model is still downloading." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "The on-device model is still downloading." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "El modelo en el dispositivo aún se está descargando." } }
-      }
-    },
-    "This clears every score on this device and every connected device. This can't be undone." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This clears every score on this device and every connected device. This can't be undone." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esto borra todas las calificaciones en este dispositivo y en todos los dispositivos conectados. Esta acción no se puede deshacer." } }
-      }
-    },
-    "This device reviews and approves scores, and controls heats and finals." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This device reviews and approves scores, and controls heats and finals." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Este dispositivo revisa y aprueba las calificaciones, y controla las rondas y la final." } }
-      }
-    },
-    "This device shows a read-only, auto-updating leaderboard for the crowd." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This device shows a read-only, auto-updating leaderboard for the crowd." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Este dispositivo muestra una tabla de posiciones de solo lectura que se actualiza automáticamente para el público." } }
-      }
-    },
-    "This permanently deletes the event and every score recorded for it. This can't be undone." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "This permanently deletes the event and every score recorded for it. This can't be undone." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esto elimina permanentemente el evento y todas las calificaciones registradas para él. Esta acción no se puede deshacer." } }
-      }
-    },
-    "Uses your OpenAI key from Settings → AI. The Aguachilelabs illustrated style is applied automatically." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Uses your OpenAI key from Settings → AI. The Aguachilelabs illustrated style is applied automatically." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Usa tu clave de OpenAI de Ajustes → IA. El estilo ilustrado de Aguachilelabs se aplica automáticamente." } }
-      }
-    },
-    "View Standings" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "View Standings" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Ver clasificación" } }
-      }
-    },
-    "Waiting for master device…" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Waiting for master device…" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Esperando el dispositivo maestro…" } }
-      }
-    },
-    "What is this device?" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "What is this device?" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "¿Qué es este dispositivo?" } }
-      }
-    },
-    "Generating tournament banners and rider avatars uses OpenAI's image API with your own key, stored only in this device's Keychain. Without a key, you can still add photos from your library. Get a key at platform.openai.com/api-keys." : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Generating tournament banners and rider avatars uses OpenAI's image API with your own key, stored only in this device's Keychain. Without a key, you can still add photos from your library. Get a key at platform.openai.com/api-keys." } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Generar banners de torneos y avatares de participantes usa la API de imágenes de OpenAI con tu propia clave, guardada solo en el llavero de este dispositivo. Sin una clave, igual puedes agregar fotos desde tu biblioteca. Obtén una clave en platform.openai.com/api-keys." } }
-      }
-    },
-    "Australia" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Australia" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Australia" } }
-      }
-    },
-    "Brazil" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Brazil" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Brasil" } }
-      }
-    },
-    "Canada" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Canada" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Canadá" } }
-      }
-    },
-    "Colombia" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Colombia" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Colombia" } }
-      }
-    },
-    "Costa Rica" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Costa Rica" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Costa Rica" } }
-      }
-    },
-    "Spain" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Spain" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "España" } }
-      }
-    },
-    "France" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "France" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Francia" } }
-      }
-    },
-    "Mexico" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Mexico" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "México" } }
-      }
-    },
-    "Netherlands" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Netherlands" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Países Bajos" } }
-      }
-    },
-    "United Kingdom" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "United Kingdom" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Reino Unido" } }
-      }
-    },
-    "United States" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "United States" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Estados Unidos" } }
-      }
+  "sourceLanguage": "en",
+  "strings": {
+    "\"%@\" wants to connect to this event.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "\"%@\" wants to connect to this event."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "\"%@\" quiere conectarse a este evento."
+          }
+        }
+      }
+    },
+    "%@ participants · %@ judges · %@ categories": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ participants · %@ judges · %@ categories"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ participantes · %@ jueces · %@ categorías"
+          }
+        }
+      }
+    },
+    "A device": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A device"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un dispositivo"
+          }
+        }
+      }
+    },
+    "AI generation is unavailable right now.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI generation is unavailable right now."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La generación con IA no está disponible en este momento."
+          }
+        }
+      }
+    },
+    "Accept": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accept"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptar"
+          }
+        }
+      }
+    },
+    "Add": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar"
+          }
+        }
+      }
     },
-    "Venezuela" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Venezuela" } },
-        "es" : { "stringUnit" : { "state" : "translated", "value" : "Venezuela" } }
+    "Add Category": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Category"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar categoría"
+          }
+        }
+      }
+    },
+    "Add Demo Event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Demo Event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar evento de demostración"
+          }
+        }
+      }
+    },
+    "Add Image": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Image"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar imagen"
+          }
+        }
+      }
+    },
+    "Add Judge": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Judge"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar juez"
+          }
+        }
+      }
+    },
+    "Add Participant": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Participant"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar participante"
+          }
+        }
+      }
+    },
+    "Add a Device": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a Device"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar un dispositivo"
+          }
+        }
+      }
+    },
+    "Add the demo event to try scoring end to end.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add the demo event to try scoring end to end."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agrega el evento de demostración para probar la calificación de principio a fin."
+          }
+        }
+      }
+    },
+    "Advance to Finals": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advance to Finals"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avanzar a la final"
+          }
+        }
+      }
+    },
+    "Advance to Finals (Top %@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advance to Finals (Top %@)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avanzar a la final (Top %@)"
+          }
+        }
+      }
+    },
+    "Advance to finals?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advance to finals?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Avanzar a la final?"
+          }
+        }
+      }
+    },
+    "All Scored": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Scored"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos calificados"
+          }
+        }
+      }
+    },
+    "Australia": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Australia"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Australia"
+          }
+        }
+      }
+    },
+    "Background": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Background"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fondo"
+          }
+        }
+      }
+    },
+    "Branding": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Branding"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identidad visual"
+          }
+        }
+      }
+    },
+    "Brazil": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brazil"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brasil"
+          }
+        }
+      }
+    },
+    "Canada": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canada"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canadá"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Categories": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categories"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categorías"
+          }
+        }
+      }
+    },
+    "Category": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categoría"
+          }
+        }
+      }
+    },
+    "Category %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categoría %@"
+          }
+        }
+      }
+    },
+    "Change Image": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Image"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambiar imagen"
+          }
+        }
+      }
+    },
+    "Choose Photo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose Photo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegir foto"
+          }
+        }
+      }
+    },
+    "Choose an event from the list to start judging or view standings.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose an event from the list to start judging or view standings."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige un evento de la lista para comenzar a calificar o ver la clasificación."
+          }
+        }
+      }
+    },
+    "Colombia": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colombia"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colombia"
+          }
+        }
+      }
+    },
+    "Connected to %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected to %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado a %@"
+          }
+        }
+      }
+    },
+    "Connection Request": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connection Request"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitud de conexión"
+          }
+        }
+      }
+    },
+    "Connections": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connections"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conexiones"
+          }
+        }
+      }
+    },
+    "Continue": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        }
+      }
+    },
+    "Costa Rica": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costa Rica"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costa Rica"
+          }
+        }
+      }
+    },
+    "Couldn't Save": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't Save"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo guardar"
+          }
+        }
+      }
+    },
+    "Couldn't create event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't create event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo crear el evento"
+          }
+        }
+      }
+    },
+    "Couldn't load events": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't load events"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudieron cargar los eventos"
+          }
+        }
+      }
+    },
+    "Couldn't read that photo.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read that photo."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo leer esa foto."
+          }
+        }
+      }
+    },
+    "Create": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crear"
+          }
+        }
+      }
+    },
+    "Decline": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Decline"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rechazar"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        }
+      }
+    },
+    "Delete \"%@\"?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete \"%@\"?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar \"%@\"?"
+          }
+        }
+      }
+    },
+    "Describe what to generate…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Describe what to generate…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Describe qué generar…"
+          }
+        }
+      }
+    },
+    "Difficulty": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Difficulty"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dificultad"
+          }
+        }
+      }
+    },
+    "Edit Participants, Judges & Categories": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Participants, Judges & Categories"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar participantes, jueces y categorías"
+          }
+        }
+      }
+    },
+    "Edit Roster": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Roster"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Editar plantilla"
+          }
+        }
+      }
+    },
+    "Event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Evento"
+          }
+        }
+      }
+    },
+    "Event Control": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Event Control"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Control del evento"
+          }
+        }
+      }
+    },
+    "Event name": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Event name"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombre del evento"
+          }
+        }
+      }
+    },
+    "Every participant has a %@ score.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every participant has a %@ score."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los participantes tienen una calificación de %@."
+          }
+        }
+      }
+    },
+    "Execution": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Execution"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejecución"
+          }
+        }
+      }
+    },
+    "Export Event…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export Event…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exportar evento…"
+          }
+        }
+      }
+    },
+    "Finalists: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finalists: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finalistas: %@"
+          }
+        }
+      }
+    },
+    "France": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "France"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Francia"
+          }
+        }
+      }
+    },
+    "Generate": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generar"
+          }
+        }
+      }
+    },
+    "Generate with AI": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate with AI"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generar con IA"
+          }
+        }
+      }
+    },
+    "Generate with AI…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generate with AI…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generar con IA…"
+          }
+        }
+      }
+    },
+    "Generating tournament banners and rider avatars uses OpenAI's image API with your own key, stored only in this device's Keychain. Without a key, you can still add photos from your library. Get a key at platform.openai.com/api-keys.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generating tournament banners and rider avatars uses OpenAI's image API with your own key, stored only in this device's Keychain. Without a key, you can still add photos from your library. Get a key at platform.openai.com/api-keys."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generar banners de torneos y avatares de participantes usa la API de imágenes de OpenAI con tu propia clave, guardada solo en el llavero de este dispositivo. Sin una clave, igual puedes agregar fotos desde tu biblioteca. Obtén una clave en platform.openai.com/api-keys."
+          }
+        }
+      }
+    },
+    "Heat size: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heat size: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamaño de ronda: %@"
+          }
+        }
+      }
+    },
+    "Import Event…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Import Event…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Importar evento…"
+          }
+        }
+      }
+    },
+    "Judge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Judge"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Juez"
+          }
+        }
+      }
+    },
+    "Judge %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Judge %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Juez %@"
+          }
+        }
+      }
+    },
+    "Judges": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Judges"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jueces"
+          }
+        }
+      }
+    },
+    "Key saved": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Key saved"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clave guardada"
+          }
+        }
+      }
+    },
+    "Logo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logotipo"
+          }
+        }
+      }
+    },
+    "Master": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Master"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maestro"
+          }
+        }
+      }
+    },
+    "Master Console": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Master Console"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consola del maestro"
+          }
+        }
+      }
+    },
+    "Mexico": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mexico"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "México"
+          }
+        }
+      }
+    },
+    "Name": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombre"
+          }
+        }
+      }
+    },
+    "Netherlands": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Netherlands"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Países Bajos"
+          }
+        }
+      }
+    },
+    "New Event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuevo evento"
+          }
+        }
+      }
+    },
+    "New Event…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Event…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuevo evento…"
+          }
+        }
+      }
+    },
+    "No Events Yet": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Events Yet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay eventos"
+          }
+        }
+      }
+    },
+    "No OpenAI API key yet — add one in Settings → AI.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No OpenAI API key yet — add one in Settings → AI."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay clave de OpenAI: agrega una en Ajustes → IA."
+          }
+        }
+      }
+    },
+    "No Scores Yet": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Scores Yet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay calificaciones"
+          }
+        }
+      }
+    },
+    "No devices connected yet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No devices connected yet"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay dispositivos conectados"
+          }
+        }
+      }
+    },
+    "OK": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aceptar"
+          }
+        }
+      }
+    },
+    "OpenAI API Key": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenAI API Key"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clave de API de OpenAI"
+          }
+        }
+      }
+    },
+    "Overall": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overall"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General"
+          }
+        }
+      }
+    },
+    "Participant %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Participant %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Participante %@"
+          }
+        }
+      }
+    },
+    "Participants": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Participants"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Participantes"
+          }
+        }
+      }
+    },
+    "Paste your OpenAI API key (sk-...)": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paste your OpenAI API key (sk-...)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pega tu clave de API de OpenAI (sk-...)"
+          }
+        }
+      }
+    },
+    "Photo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto"
+          }
+        }
+      }
+    },
+    "Pick which judge is scoring on this device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pick which judge is scoring on this device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige qué juez está calificando en este dispositivo."
+          }
+        }
+      }
+    },
+    "Remove": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitar"
+          }
+        }
+      }
+    },
+    "Rename": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rename"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renombrar"
+          }
+        }
+      }
+    },
+    "Rename Event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rename Event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renombrar evento"
+          }
+        }
+      }
+    },
+    "Rename…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rename…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renombrar…"
+          }
+        }
+      }
+    },
+    "Replaces the roster with the top %@ by current average and clears scores for the new round, on every connected device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replaces the roster with the top %@ by current average and clears scores for the new round, on every connected device."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reemplaza la plantilla con los %@ mejores según el promedio actual y borra las calificaciones para la nueva ronda, en todos los dispositivos conectados."
+          }
+        }
+      }
+    },
+    "Reset All Scores": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset All Scores"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar todas las calificaciones"
+          }
+        }
+      }
+    },
+    "Reset Scores": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset Scores"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reiniciar calificaciones"
+          }
+        }
+      }
+    },
+    "Reset all scores?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset all scores?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Reiniciar todas las calificaciones?"
+          }
+        }
+      }
+    },
+    "Role": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Role"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rol"
+          }
+        }
+      }
+    },
+    "Roster": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Roster"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plantilla"
+          }
+        }
+      }
+    },
+    "Save": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
+          }
+        }
+      }
+    },
+    "Save Key": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save Key"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar clave"
+          }
+        }
+      }
+    },
+    "Score as Judge": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Score as Judge"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calificar como juez"
+          }
+        }
+      }
+    },
+    "Screen": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Screen"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pantalla"
+          }
+        }
+      }
+    },
+    "Select a judge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a judge"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona un juez"
+          }
+        }
+      }
+    },
+    "Select an Event": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select an Event"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selecciona un evento"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        }
+      }
+    },
+    "Share this with a brand-new device with no events on it yet — import it there, then invite it below once it shows up nearby.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share this with a brand-new device with no events on it yet — import it there, then invite it below once it shows up nearby."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparte esto con un dispositivo nuevo que aún no tenga eventos — impórtalo ahí, luego invítalo abajo en cuanto aparezca cerca."
+          }
+        }
+      }
+    },
+    "Spain": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spain"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "España"
+          }
+        }
+      }
+    },
+    "Standings": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Standings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clasificación"
+          }
+        }
+      }
+    },
+    "Standings appear once at least one judge submits a score.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Standings appear once at least one judge submits a score."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La clasificación aparece en cuanto un juez envía una calificación."
+          }
+        }
+      }
+    },
+    "Style": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Style"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estilo"
+          }
+        }
+      }
+    },
+    "Submit Score": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Submit Score"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enviar calificación"
+          }
+        }
+      }
+    },
+    "That doesn't look like an OpenAI key — it should start with sk-.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That doesn't look like an OpenAI key — it should start with sk-."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eso no parece una clave de OpenAI: debería comenzar con sk-."
+          }
+        }
+      }
+    },
+    "That request failed. Check your connection and try again.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That request failed. Check your connection and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esa solicitud falló. Revisa tu conexión e inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "The AI didn't return a usable image.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The AI didn't return a usable image."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La IA no devolvió una imagen utilizable."
+          }
+        }
+      }
+    },
+    "The AI response wasn't in the expected format.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The AI response wasn't in the expected format."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La respuesta de la IA no tuvo el formato esperado."
+          }
+        }
+      }
+    },
+    "The on-device model is still downloading.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The on-device model is still downloading."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El modelo en el dispositivo aún se está descargando."
+          }
+        }
+      }
+    },
+    "This clears every score on this device and every connected device. This can't be undone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This clears every score on this device and every connected device. This can't be undone."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto borra todas las calificaciones en este dispositivo y en todos los dispositivos conectados. Esta acción no se puede deshacer."
+          }
+        }
+      }
+    },
+    "This device reviews and approves scores, and controls heats and finals.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This device reviews and approves scores, and controls heats and finals."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este dispositivo revisa y aprueba las calificaciones, y controla las rondas y la final."
+          }
+        }
+      }
+    },
+    "This device shows a read-only, auto-updating leaderboard for the crowd.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This device shows a read-only, auto-updating leaderboard for the crowd."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este dispositivo muestra una tabla de posiciones de solo lectura que se actualiza automáticamente para el público."
+          }
+        }
+      }
+    },
+    "This permanently deletes the event and every score recorded for it. This can't be undone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This permanently deletes the event and every score recorded for it. This can't be undone."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto elimina permanentemente el evento y todas las calificaciones registradas para él. Esta acción no se puede deshacer."
+          }
+        }
+      }
+    },
+    "United Kingdom": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "United Kingdom"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reino Unido"
+          }
+        }
+      }
+    },
+    "United States": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "United States"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estados Unidos"
+          }
+        }
+      }
+    },
+    "Uses your OpenAI key from Settings → AI. The Aguachilelabs illustrated style is applied automatically.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uses your OpenAI key from Settings → AI. The Aguachilelabs illustrated style is applied automatically."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa tu clave de OpenAI de Ajustes → IA. El estilo ilustrado de Aguachilelabs se aplica automáticamente."
+          }
+        }
+      }
+    },
+    "Venezuela": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Venezuela"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Venezuela"
+          }
+        }
+      }
+    },
+    "View Standings": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View Standings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver clasificación"
+          }
+        }
+      }
+    },
+    "Waiting for master device…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for master device…"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esperando el dispositivo maestro…"
+          }
+        }
+      }
+    },
+    "What is this device?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What is this device?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué es este dispositivo?"
+          }
+        }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

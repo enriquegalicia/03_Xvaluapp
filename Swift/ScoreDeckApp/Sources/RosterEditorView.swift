@@ -21,19 +21,34 @@ struct RosterEditorView: View {
     @State private var logoImageFilename: String?
     @State private var backgroundImageFilename: String?
 
+    /// The non-deleted ids this screen opened with — used at save time to
+    /// tell "swiped away in this session" apart from "was never here", so a
+    /// deletion can be turned into a tombstone (see `save()`) instead of
+    /// silently doing nothing once `updateRoster` merges instead of
+    /// replacing.
+    private let originalParticipantIDs: Set<UUID>
+    private let originalJudgeIDs: Set<UUID>
+    private let originalCategoryIDs: Set<UUID>
+
     init(session: EventSession) {
         self.session = session
-        _participants = State(initialValue: session.event.participants.map {
+        let liveParticipants = session.event.participants.filter { !$0.isDeleted }
+        let liveJudges = session.event.judges.filter { !$0.isDeleted }
+        let liveCategories = session.event.categories.filter { !$0.isDeleted }
+        _participants = State(initialValue: liveParticipants.map {
             RosterDraft(existingID: $0.id, name: $0.name, countryCode: $0.countryCode, imageFilename: $0.imageFilename)
         })
-        _judges = State(initialValue: session.event.judges.map {
+        _judges = State(initialValue: liveJudges.map {
             NameDraft(existingID: $0.id, name: $0.name)
         })
-        _categories = State(initialValue: session.event.categories.map {
+        _categories = State(initialValue: liveCategories.map {
             NameDraft(existingID: $0.id, name: $0.name)
         })
         _logoImageFilename = State(initialValue: session.event.logoImageFilename)
         _backgroundImageFilename = State(initialValue: session.event.backgroundImageFilename)
+        originalParticipantIDs = Set(liveParticipants.map(\.id))
+        originalJudgeIDs = Set(liveJudges.map(\.id))
+        originalCategoryIDs = Set(liveCategories.map(\.id))
     }
 
     var body: some View {
@@ -76,33 +91,89 @@ struct RosterEditorView: View {
     }
 
     private func save() {
-        var nextParticipantID = (session.event.participants.map(\.id).max() ?? 0) + 1
-        var nextJudgeID = (session.event.judges.map(\.id).max() ?? 0) + 1
-        var nextCategoryID = (session.event.categories.map(\.id).max() ?? 0) + 1
+        // New/actually-edited entries get a fresh `updatedAt`/`originDeviceID`
+        // stamp; an existing row nobody touched in this pass keeps its
+        // original stamp. That distinction matters once `RosterMerge` is
+        // involved: if every save blanket-restamped every row, one device
+        // opening this screen and saving without touching a field another
+        // device just edited would still "win" the merge purely by having
+        // the newer save time, silently reverting the real edit. New
+        // entries get a fresh `UUID`, not a `max + 1` counter — that's what
+        // lets two devices add participants independently, online or off,
+        // without minting the same id.
+        let now = Date()
+        let existingParticipantsByID = Dictionary(uniqueKeysWithValues: session.event.participants.map { ($0.id, $0) })
+        let existingJudgesByID = Dictionary(uniqueKeysWithValues: session.event.judges.map { ($0.id, $0) })
+        let existingCategoriesByID = Dictionary(uniqueKeysWithValues: session.event.categories.map { ($0.id, $0) })
 
         let resolvedParticipants = participants
             .filter { !$0.name.trimmingCharacters(in: .whitespaces).isEmpty }
             .map { draft -> Participant in
-                let id = draft.existingID ?? nextParticipantID
-                if draft.existingID == nil { nextParticipantID += 1 }
-                return Participant(id: id, name: draft.name, countryCode: draft.countryCode, imageFilename: draft.imageFilename)
+                if let id = draft.existingID, let original = existingParticipantsByID[id],
+                   original.name == draft.name, original.countryCode == draft.countryCode, original.imageFilename == draft.imageFilename {
+                    return original
+                }
+                return Participant(
+                    id: draft.existingID ?? UUID(),
+                    name: draft.name,
+                    countryCode: draft.countryCode,
+                    imageFilename: draft.imageFilename,
+                    updatedAt: now,
+                    originDeviceID: DeviceIdentity.current
+                )
             }
         let resolvedJudges = judges
             .filter { !$0.name.trimmingCharacters(in: .whitespaces).isEmpty }
             .map { draft -> Judge in
-                let id = draft.existingID ?? nextJudgeID
-                if draft.existingID == nil { nextJudgeID += 1 }
-                return Judge(id: id, name: draft.name)
+                if let id = draft.existingID, let original = existingJudgesByID[id], original.name == draft.name {
+                    return original
+                }
+                return Judge(id: draft.existingID ?? UUID(), name: draft.name, updatedAt: now, originDeviceID: DeviceIdentity.current)
             }
         let resolvedCategories = categories
             .filter { !$0.name.trimmingCharacters(in: .whitespaces).isEmpty }
             .map { draft -> ScoringCategory in
-                let id = draft.existingID ?? nextCategoryID
-                if draft.existingID == nil { nextCategoryID += 1 }
-                return ScoringCategory(id: id, name: draft.name)
+                if let id = draft.existingID, let original = existingCategoriesByID[id], original.name == draft.name {
+                    return original
+                }
+                return ScoringCategory(id: draft.existingID ?? UUID(), name: draft.name, updatedAt: now, originDeviceID: DeviceIdentity.current)
             }
 
-        session.updateRoster(participants: resolvedParticipants, judges: resolvedJudges, categories: resolvedCategories)
+        // Rows swiped away in this session (present when the screen opened,
+        // absent from the draft now) become tombstones rather than just
+        // vanishing from what's sent — `updateRoster` merges instead of
+        // replacing, so an omitted id wouldn't otherwise be distinguishable
+        // from an id this device simply doesn't know about yet.
+        let remainingParticipantIDs = Set(participants.compactMap(\.existingID))
+        let deletedParticipants = originalParticipantIDs.subtracting(remainingParticipantIDs).compactMap { id -> Participant? in
+            guard var tombstone = existingParticipantsByID[id] else { return nil }
+            tombstone.updatedAt = now
+            tombstone.originDeviceID = DeviceIdentity.current
+            tombstone.isDeleted = true
+            return tombstone
+        }
+        let remainingJudgeIDs = Set(judges.compactMap(\.existingID))
+        let deletedJudges = originalJudgeIDs.subtracting(remainingJudgeIDs).compactMap { id -> Judge? in
+            guard var tombstone = existingJudgesByID[id] else { return nil }
+            tombstone.updatedAt = now
+            tombstone.originDeviceID = DeviceIdentity.current
+            tombstone.isDeleted = true
+            return tombstone
+        }
+        let remainingCategoryIDs = Set(categories.compactMap(\.existingID))
+        let deletedCategories = originalCategoryIDs.subtracting(remainingCategoryIDs).compactMap { id -> ScoringCategory? in
+            guard var tombstone = existingCategoriesByID[id] else { return nil }
+            tombstone.updatedAt = now
+            tombstone.originDeviceID = DeviceIdentity.current
+            tombstone.isDeleted = true
+            return tombstone
+        }
+
+        session.updateRoster(
+            participants: resolvedParticipants + deletedParticipants,
+            judges: resolvedJudges + deletedJudges,
+            categories: resolvedCategories + deletedCategories
+        )
         session.updateBranding(logoImageFilename: logoImageFilename, backgroundImageFilename: backgroundImageFilename)
         dismiss()
     }

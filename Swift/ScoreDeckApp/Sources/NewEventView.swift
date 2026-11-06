@@ -78,17 +78,17 @@ struct NewEventView: View {
             backgroundImageFilename: backgroundImageFilename,
             participants: participants.enumerated().map { index, draft in
                 Participant(
-                    id: index + 1,
                     name: draft.name.isEmpty ? String(localized: "Participant \(index + 1)") : draft.name,
                     countryCode: draft.countryCode,
-                    imageFilename: draft.imageFilename
+                    imageFilename: draft.imageFilename,
+                    originDeviceID: DeviceIdentity.current
                 )
             },
             judges: judges.enumerated().map { index, draft in
-                Judge(id: index + 1, name: draft.name.isEmpty ? String(localized: "Judge \(index + 1)") : draft.name)
+                Judge(name: draft.name.isEmpty ? String(localized: "Judge \(index + 1)") : draft.name, originDeviceID: DeviceIdentity.current)
             },
             categories: categories.enumerated().map { index, draft in
-                ScoringCategory(id: index + 1, name: draft.name.isEmpty ? String(localized: "Category \(index + 1)") : draft.name)
+                ScoringCategory(name: draft.name.isEmpty ? String(localized: "Category \(index + 1)") : draft.name, originDeviceID: DeviceIdentity.current)
             },
             heatSize: heatSize,
             finalistCount: finalistCount
@@ -112,7 +112,7 @@ struct RosterDraft: Identifiable {
     /// matters because existing `Score`s reference participant/judge ids —
     /// renumbering everyone on every save the way `NewEventView` safely can
     /// (no scores exist yet) would silently misattribute past scores.
-    var existingID: Int? = nil
+    var existingID: UUID? = nil
     var name: String
     var countryCode: String
     var imageFilename: String? = nil
@@ -120,7 +120,7 @@ struct RosterDraft: Identifiable {
 
 struct NameDraft: Identifiable {
     let id = UUID()
-    var existingID: Int? = nil
+    var existingID: UUID? = nil
     var name: String
 }
 

@@ -7,6 +7,11 @@ import XvaluappCore
 /// triggered destructive, unconfirmed operations broadcast to every
 /// connected device. Every destructive action here goes through
 /// `.confirmationDialog`, and there is no plaintext command line at all.
+///
+/// No "score as judge" shortcut here anymore — a device holding the Master
+/// role that also wants to judge just turns on the Judge role too (see
+/// `RoleSelectionView`), which gets it a Score tab alongside this one on
+/// `EventDetailView` natively, instead of a console-only detour.
 struct MasterConsoleView: View {
     let session: EventSession
 
@@ -21,18 +26,9 @@ struct MasterConsoleView: View {
                 } label: {
                     Label("Edit Participants, Judges & Categories", systemImage: "person.crop.circle.badge.plus")
                 }
-                Text("\(session.event.participants.count) participants · \(session.event.judges.count) judges · \(session.event.categories.count) categories")
+                Text("\(session.event.activeParticipants.count) participants · \(session.event.activeJudges.count) judges · \(session.event.activeCategories.count) categories")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-            }
-            .listRowBackground(AguaColor.bgCard)
-
-            Section("Score as Judge") {
-                ForEach(session.event.judges) { judge in
-                    NavigationLink(judge.name) {
-                        ScoringView(session: session, judge: judge)
-                    }
-                }
             }
             .listRowBackground(AguaColor.bgCard)
 
@@ -53,26 +49,7 @@ struct MasterConsoleView: View {
             }
             .listRowBackground(AguaColor.bgCard)
 
-            if let transport = session.transport {
-                Section("Connections") {
-                    if transport.connectedPeers.isEmpty {
-                        Text("No devices connected yet").foregroundStyle(.secondary)
-                    } else {
-                        ForEach(transport.connectedPeers, id: \.self) { peer in
-                            Label(peer.displayName, systemImage: "checkmark.circle.fill")
-                                .foregroundStyle(.primary)
-                        }
-                    }
-                    ForEach(transport.discoveredPeers.filter { !transport.connectedPeers.contains($0) }, id: \.self) { peer in
-                        Button {
-                            transport.invite(peer)
-                        } label: {
-                            Label(peer.displayName, systemImage: "plus.circle")
-                        }
-                    }
-                }
-                .listRowBackground(AguaColor.bgCard)
-            }
+            ConnectionsSection(session: session)
 
             Section("Event Control") {
                 Button(role: .destructive) {

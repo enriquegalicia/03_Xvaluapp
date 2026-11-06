@@ -10,14 +10,18 @@ struct ScoringView: View {
     let session: EventSession
     let judge: Judge
 
-    @State private var categoryID: Int
-    @State private var selectedParticipantID: Int?
+    // A never-matching sentinel when the roster has no categories yet,
+    // mirroring the old `?? 0` fallback (id `0` never matched a real
+    // category either) — keeps the segmented Picker's binding type
+    // non-optional, which a plain `UUID?` selection can't drive cleanly.
+    @State private var categoryID: UUID
+    @State private var selectedParticipantID: UUID?
     @State private var pad = ScoreEntryPad()
 
     init(session: EventSession, judge: Judge) {
         self.session = session
         self.judge = judge
-        _categoryID = State(initialValue: session.event.categories.first?.id ?? 0)
+        _categoryID = State(initialValue: session.event.activeCategories.first?.id ?? UUID())
     }
 
     private var pendingParticipants: [Participant] {
@@ -26,13 +30,13 @@ struct ScoringView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            if session.role != .master {
+            if !session.roles.contains(.master) {
                 ConnectionStatusBadge(connectedPeerNames: session.connectedPeerNames)
                     .padding(.top, 8)
             }
 
             Picker("Category", selection: $categoryID) {
-                ForEach(session.event.categories) { category in
+                ForEach(session.event.activeCategories) { category in
                     Text(category.name).tag(category.id)
                 }
             }
@@ -71,7 +75,7 @@ struct ScoringView: View {
     }
 
     private var categoryName: String {
-        session.event.categories.first { $0.id == categoryID }?.name ?? ""
+        session.event.activeCategories.first { $0.id == categoryID }?.name ?? ""
     }
 
     private var keypad: some View {

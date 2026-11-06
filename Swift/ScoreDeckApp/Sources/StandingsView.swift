@@ -10,7 +10,7 @@ struct StandingsView: View {
     /// `nil` shows the overall average across every category; a specific id
     /// shows just that category's leaderboard — what the Screen carousel
     /// rotates through one page at a time.
-    var categoryID: Int? = nil
+    var categoryID: UUID? = nil
     /// A plain `String`, not `LocalizedStringKey` — it doubles as a
     /// category's own name (arbitrary user data, must NOT be translated)
     /// when the carousel passes one in. Display sites below wrap it in
@@ -37,7 +37,7 @@ struct StandingsView: View {
                     .listRowBackground(Color.clear)
             }
 
-            if session.role != .master {
+            if !session.roles.contains(.master) {
                 ConnectionStatusBadge(connectedPeerNames: session.connectedPeerNames)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .listRowSeparator(.hidden)

@@ -4,8 +4,8 @@ import MultipeerConnectivity
 import XvaluappCore
 
 /// Holds one open event, the store to persist it to, and — once
-/// `startNetworking(as:displayName:)` is called — the Multipeer transport
-/// syncing it with other devices at the same event.
+/// `connect(displayName:)` is called — the Multipeer transport syncing it
+/// with other devices at the same event.
 ///
 /// This collapses what the legacy app spread across `JudgePanel.m`'s
 /// `session:didReceiveData:fromPeer:` (a 90-line flat if-chain keyed on a
@@ -13,13 +13,43 @@ import XvaluappCore
 /// `SyncMessage`, and replaces the three-table `EVALUACION` /
 /// `EVALUACIONLO` / `BUFFER` score lifecycle with a single `Score.Status`
 /// that a `.scoreSubmitted` → `.scoresApproved` round trip advances.
+///
+/// Roles are a *set*, not one exclusive value — a device can be Judge and
+/// Screen at once, or Master and Judge, and can add/drop roles at any time
+/// without leaving the event. Exactly one connected device may hold
+/// `.master`; see `canEnableMaster`.
 @Observable
 final class EventSession {
     private(set) var event: Event
     private let store: any EventStoring
 
-    private(set) var role: PeerRole?
+    private(set) var roles: Set<PeerRole> = []
+    /// Which judge on the roster this device scores as, when `.judge` is
+    /// active. Independent of `roles` itself since a device can turn Judge
+    /// on/off repeatedly without re-picking who it's scoring as.
+    var activeJudgeID: UUID?
+
     private(set) var transport: MultipeerTransport?
+
+    /// What every currently- or previously-connected peer has announced
+    /// about itself via `.roleAnnounce` — the source both the Master-
+    /// singleton guard and the Connections list read from.
+    private(set) var knownPeerRoles: [MCPeerID: (deviceID: UUID, displayName: String, roles: Set<PeerRole>)] = [:]
+
+    /// False only when some other *connected* peer already announced
+    /// `.master`. The UI disables the Master toggle and explains why when
+    /// this is false, instead of letting two devices both claim it — a
+    /// lightweight, client-side guard rather than a real election: at this
+    /// app's scale (a handful of staff devices on one LAN) that's enough,
+    /// and it keeps the protocol simple. See the architecture write-up for
+    /// the race this doesn't close.
+    var canEnableMaster: Bool {
+        if roles.contains(.master) { return true }
+        guard let transport else { return true }
+        return !transport.connectedPeers.contains { peer in
+            knownPeerRoles[peer]?.roles.contains(.master) ?? false
+        }
+    }
 
     /// Set when a save fails mid-event; views alert on it and clear it via
     /// `clearPersistenceError()` instead of the app crashing on a full disk
@@ -46,7 +76,7 @@ final class EventSession {
     /// what the Screen carousel's first page and the Master console's
     /// "any scores yet" check both want; a specific id gives that one
     /// category's leaderboard, for the carousel's per-category pages.
-    func standings(categoryID: Int? = nil) -> [RankingRow] {
+    func standings(categoryID: UUID? = nil) -> [RankingRow] {
         RankingEngine.standings(participants: event.participants, scores: event.scores, categoryID: categoryID)
     }
 
@@ -54,62 +84,73 @@ final class EventSession {
     /// category — the modern equivalent of the legacy `Siguientes` /
     /// "cargasiguientes" queue, minus the bug where judges were forced
     /// through it in strict id order with no way to go back.
-    func participantsAwaitingScore(in categoryID: Int) -> [Participant] {
+    func participantsAwaitingScore(in categoryID: UUID) -> [Participant] {
         let scored = Set(
             event.scores
                 .filter { $0.categoryID == categoryID && $0.status == .approved }
                 .map(\.participantID)
         )
-        return event.participants.filter { !scored.contains($0.id) }
+        return event.activeParticipants.filter { !scored.contains($0.id) }
     }
 
     // MARK: - Networking
 
-    /// The master both advertises (so judge/screen devices can find it) and
-    /// browses (so its "Connections" screen can show and invite nearby
-    /// devices too) — same "every peer can do both" shape the legacy app
-    /// used, but now the *role* each connected peer plays is an explicit,
-    /// typed choice made on this screen, not a string stashed in
-    /// `MCPeerID.accessibilityLabel` that peers never actually exchanged.
-    func startNetworking(as role: PeerRole, displayName: String) {
-        self.role = role
+    /// Starts advertising *and* browsing unconditionally, independent of
+    /// role — every device can discover and be discovered by every other
+    /// device the moment an event is open, before anyone has picked a role.
+    /// Call once, as soon as the event's detail screen appears.
+    ///
+    /// Replaces the old role-gated asymmetry (only a self-declared Master
+    /// browsed/invited; everyone else just advertised and waited) — that
+    /// no longer fits a world where role is chosen (and changed) after
+    /// connecting, not before.
+    func connect(displayName: String) {
+        guard transport == nil else { return }
         let transport = MultipeerTransport(displayName: displayName)
-        transport.onReceive = { [weak self] message, _ in self?.handle(message) }
-        // Only the master browses/invites — judge and screen devices just
-        // advertise and wait, mirroring the legacy app's asymmetric
-        // "master presents the browser, everyone else just shows up in it"
-        // flow instead of every peer independently browsing *and*
-        // advertising, which invited races between two devices trying to
-        // invite each other simultaneously.
-        if role == .master {
-            transport.onPeerConnected = { [weak self] peer in
-                guard let self else { return }
-                transport.send(.fullEventSnapshot(self.event), to: [peer])
-            }
-            transport.startBrowsing()
+        transport.onReceive = { [weak self] message, peer in self?.handle(message, from: peer) }
+        transport.onPeerConnected = { [weak self] peer in
+            guard let self else { return }
+            transport.send(.fullEventSnapshot(self.event), to: [peer])
+            transport.send(.roleAnnounce(deviceID: DeviceIdentity.current, displayName: displayName, roles: self.roles), to: [peer])
+        }
+        transport.onPeerDisconnected = { [weak self] peer in
+            self?.knownPeerRoles.removeValue(forKey: peer)
         }
         transport.startAdvertising()
+        transport.startBrowsing()
         self.transport = transport
     }
 
+    /// Tears down the live transport only — deliberately leaves `roles`/
+    /// `activeJudgeID` alone. Those are this device's standing preference
+    /// for *this event*, not connection state: briefly navigating back to
+    /// the event list and returning shouldn't force re-picking Judge/
+    /// Master/Screen every time, it should just reconnect and re-announce
+    /// whatever was already chosen (see `onPeerConnected` in `connect`).
     func stopNetworking() {
         transport?.stopAll()
         transport = nil
-        role = nil
+        knownPeerRoles.removeAll()
     }
 
-    private func handle(_ message: SyncMessage) {
+    /// Updates this device's active roles and tells every connected peer.
+    /// Turning `.master` back off (e.g. to hand it to another device) is
+    /// just calling this without it in the set — there's no separate
+    /// "step down" message, since removing a role and adding one use the
+    /// same announcement.
+    func setRoles(_ newRoles: Set<PeerRole>) {
+        roles = newRoles
+        transport?.broadcast(.roleAnnounce(deviceID: DeviceIdentity.current, displayName: transport?.myPeerID.displayName ?? "", roles: roles))
+    }
+
+    private func handle(_ message: SyncMessage, from peer: MCPeerID) {
         switch message {
         case .fullEventSnapshot(let incoming):
-            // The master is always authoritative for its own event; it
-            // ignores snapshots (there should be only one master, but see
-            // the leader-election note in the migration dossier — this
-            // guard is the cheap half of that fix, not the whole thing).
-            guard role != .master else { return }
-            event = incoming
+            event = event.merged(with: incoming)
+            persist()
 
         case .scoreSubmitted(let score):
-            guard role == .master else { return }
+            guard roles.contains(.master) else { return }
             var approved = score
             approved.status = .approved
             event.scores.append(approved)
@@ -117,16 +158,13 @@ final class EventSession {
             transport?.broadcast(.scoresApproved([approved]))
 
         case .scoresApproved(let scores):
-            guard role != .master else { return }
-            let existingIDs = Set(event.scores.map(\.id))
-            event.scores.append(contentsOf: scores.filter { !existingIDs.contains($0.id) })
+            event.scores = RosterMerge.mergeScores(local: event.scores, remote: scores)
             persist()
 
         case .rosterUpdated(let participants, let categories, let judges):
-            guard role != .master else { return }
-            event.participants = participants
-            event.categories = categories
-            event.judges = judges
+            event.participants = RosterMerge.merge(local: event.participants, remote: participants)
+            event.categories = RosterMerge.merge(local: event.categories, remote: categories)
+            event.judges = RosterMerge.merge(local: event.judges, remote: judges)
             persist()
 
         case .resetEvent:
@@ -134,9 +172,11 @@ final class EventSession {
             persist()
 
         case .advanceToFinals(let finalsEvent):
-            guard role != .master else { return }
             event = finalsEvent
             persist()
+
+        case .roleAnnounce(let deviceID, let displayName, let announcedRoles):
+            knownPeerRoles[peer] = (deviceID, displayName, announcedRoles)
 
         case .requestUnsyncedScores, .unsyncedScores:
             // Not needed under this always-broadcast model — every approved
@@ -150,8 +190,8 @@ final class EventSession {
     // MARK: - Scoring
 
     @discardableResult
-    func submitScore(judgeID: Int, participantID: Int, categoryID: Int, value: Double) -> Score {
-        let isMaster = role == .master || role == nil
+    func submitScore(judgeID: UUID, participantID: UUID, categoryID: UUID, value: Double) -> Score {
+        let isMaster = roles.contains(.master)
         let score = Score(
             judgeID: judgeID,
             participantID: participantID,
@@ -170,7 +210,9 @@ final class EventSession {
         return score
     }
 
-    // MARK: - Master-only actions (see MasterConsoleView)
+    // MARK: - Roster & event control (any device may call these now — see
+    // the sync architecture write-up for why roster editing is no longer
+    // Master-gated)
 
     func resetScores() {
         event.scores.removeAll()
@@ -178,16 +220,18 @@ final class EventSession {
         transport?.broadcast(.resetEvent)
     }
 
-    /// Replaces the roster (used by `RosterEditorView` for both "add a
-    /// walk-up participant mid-event" and general roster edits). Existing
+    /// Merges the given roster draft into this device's own event instead
+    /// of replacing it outright, so a local edit composes with whatever
+    /// was already merged in from peers rather than discarding it. Existing
     /// scores are untouched — this only ever changes the participant/judge/
     /// category *lists*, never renumbers ids `Score`s already reference.
     func updateRoster(participants: [Participant], judges: [Judge], categories: [ScoringCategory]) {
-        event.participants = participants
-        event.judges = judges
-        event.categories = categories
+        event.participants = RosterMerge.merge(local: event.participants, remote: participants)
+        event.judges = RosterMerge.merge(local: event.judges, remote: judges)
+        event.categories = RosterMerge.merge(local: event.categories, remote: categories)
+        event.updatedAt = Date()
         persist()
-        transport?.broadcast(.rosterUpdated(participants: participants, categories: categories, judges: judges))
+        transport?.broadcast(.rosterUpdated(participants: event.participants, categories: event.categories, judges: event.judges))
     }
 
     /// Kept separate from `updateRoster` so that method's other call sites
@@ -199,6 +243,7 @@ final class EventSession {
     func updateBranding(logoImageFilename: String?, backgroundImageFilename: String?) {
         event.logoImageFilename = logoImageFilename
         event.backgroundImageFilename = backgroundImageFilename
+        event.updatedAt = Date()
         persist()
     }
 
@@ -207,6 +252,7 @@ final class EventSession {
         var finalsEvent = event
         finalsEvent.participants = finalists.map(\.participant)
         finalsEvent.scores = []
+        finalsEvent.updatedAt = Date()
         event = finalsEvent
         persist()
         transport?.broadcast(.advanceToFinals(finalsEvent))

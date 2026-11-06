@@ -4,6 +4,15 @@ import Foundation
 /// string ("Maestra"/"Juez"/"Pantalla") in `MCPeerID.accessibilityLabel` —
 /// an accessibility API repurposed as a role tag in `JudgePanel.m`, readable
 /// only locally (a peer could never tell *another* peer's role from it).
+///
+/// A device holds a *set* of these, not one exclusive value — the legacy
+/// app (and this app's first pass) forced Judge/Master/Screen to be
+/// mutually exclusive, which doesn't fit an event run by fewer staff than
+/// roles: the Master device reviewing scores should also be able to judge
+/// or watch the leaderboard without giving up Master, and one device can
+/// cover both Judge and Screen duty. Exactly one connected device may hold
+/// `.master` at a time (enforced client-side — see `EventSession.canEnableMaster`);
+/// the other two roles are unrestricted.
 public enum PeerRole: String, Codable, Sendable, CaseIterable {
     case master   // was "Maestra"
     case judge    // was "Juez"
@@ -35,7 +44,12 @@ public enum PeerRole: String, Codable, Sendable, CaseIterable {
 ///    explicit `recipients: Set<PeerRole>` the transport layer checks,
 ///    rather than two separate message types.
 public enum SyncMessage: Codable, Sendable {
-    /// Master -> all: full event snapshot on connect. Was "Inicial".
+    /// Sent to a newly-connected peer (both directions — every device does
+    /// this now, not just Master) and merged into the receiver's own event
+    /// via `Event.merged(with:)` rather than overwriting it outright. Was
+    /// "Inicial", and was one-directional/overwrite-on-receive before this
+    /// pass — Master is no longer the sole owner of roster truth, so it has
+    /// to merge incoming snapshots too instead of ignoring them.
     case fullEventSnapshot(Event)
 
     /// Judge -> master: one newly-entered score. Was "Dato" (and the
@@ -55,9 +69,20 @@ public enum SyncMessage: Codable, Sendable {
     /// Judge -> master: reply to `.requestUnsyncedScores`. Was "Sincronia".
     case unsyncedScores([Score])
 
-    /// Master -> all except master: roster/category edits propagated live.
-    /// Was "UpdateOrder".
+    /// Any device -> all: roster/category edits propagated live, merged
+    /// into the receiver's roster via `RosterMerge` rather than replacing
+    /// it. Was "UpdateOrder", and was Master-only in both directions before
+    /// this pass — roster population is no longer gated to the Master
+    /// device, so any device can send this.
     case rosterUpdated(participants: [Participant], categories: [ScoringCategory], judges: [Judge])
+
+    /// Any device -> all, whenever its active roles change (including once
+    /// to every peer right after connecting). Lets every device keep a live
+    /// map of which connected peer holds which role(s) — what the
+    /// client-side Master-singleton guard and the Connections list both
+    /// read from. Has no legacy equivalent; the old app never exchanged
+    /// role information between peers at all.
+    case roleAnnounce(deviceID: UUID, displayName: String, roles: Set<PeerRole>)
 
     /// Master -> all: wipe all local competition data. Was "CleanThemAll",
     /// reachable in the legacy app only via typing "Reset" into a plaintext

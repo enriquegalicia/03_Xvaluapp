@@ -17,7 +17,7 @@ struct ScoreboardCarouselView: View {
 
     private var pages: [Page] {
         [Page(title: "Overall", categoryID: nil)]
-            + session.event.categories.map { Page(title: $0.name, categoryID: $0.id) }
+            + session.event.activeCategories.map { Page(title: $0.name, categoryID: $0.id) }
     }
 
     var body: some View {
@@ -88,6 +88,6 @@ struct ScoreboardCarouselView: View {
 
     private struct Page {
         let title: String
-        let categoryID: Int?
+        let categoryID: UUID?
     }
 }

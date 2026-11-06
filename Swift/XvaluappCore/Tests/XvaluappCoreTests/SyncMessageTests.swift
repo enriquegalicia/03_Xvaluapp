@@ -11,7 +11,7 @@ struct SyncMessageTests {
     /// well-formed encode/decode round trip never throws.
     @Test func allCasesRoundTripThroughJSON() throws {
         let event = Event(name: "Dirt Conquers")
-        let score = Score(judgeID: 1, participantID: 2, categoryID: 3, value: 8.5)
+        let score = Score(judgeID: UUID(), participantID: UUID(), categoryID: UUID(), value: 8.5)
 
         let messages: [SyncMessage] = [
             .fullEventSnapshot(event),
@@ -22,6 +22,7 @@ struct SyncMessageTests {
             .rosterUpdated(participants: [], categories: [], judges: []),
             .resetEvent,
             .advanceToFinals(event),
+            .roleAnnounce(deviceID: UUID(), displayName: "Sam's iPad", roles: [.master, .judge]),
         ]
 
         let encoder = JSONEncoder()

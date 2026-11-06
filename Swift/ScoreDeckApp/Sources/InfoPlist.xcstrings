@@ -1,41 +1,40 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "CFBundleName": {
-      "comment": "Bundle name",
-      "extractionState": "extracted_with_value",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ScoreDeck"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ScoreDeck"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ScoreDeck"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ScoreDeck"
           }
         }
       }
     },
-    "NSLocalNetworkUsageDescription": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ScoreDeck uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
+    "NSLocalNetworkUsageDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ScoreDeck uses the local network to sync scores between judge, master, and screen devices at the same event — no internet connection required."
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ScoreDeck usa la red local para sincronizar las calificaciones entre los dispositivos de juez, maestro y pantalla en el mismo evento; no necesita conexión a internet."
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ScoreDeck usa la red local para sincronizar las calificaciones entre los dispositivos de juez, maestro y pantalla en el mismo evento; no necesita conexión a internet."
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

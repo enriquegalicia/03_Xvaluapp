@@ -20,6 +20,14 @@ struct EventListView: View {
 
     @State private var events: [Event] = []
     @State private var selectedEventID: Event.ID?
+    /// Built once per selected event, not inline in the `detail` closure —
+    /// `EventDetailView` now connects to peers and accumulates role/
+    /// transport state for as long as an event is open (see
+    /// `EventSession.connect`), so it must survive this view's `body`
+    /// re-running for unrelated reasons (opening Settings, a row swipe,
+    /// anything else that touches `@State` here). Only replaced when the
+    /// selected event id actually changes.
+    @State private var session: EventSession?
     @State private var loadError: String?
     @State private var showingNewEvent = false
     @State private var eventPendingDelete: Event?
@@ -31,13 +39,7 @@ struct EventListView: View {
     var body: some View {
         NavigationSplitView {
             List(selection: $selectedEventID) {
-                if events.isEmpty {
-                    ContentUnavailableView(
-                        "No Events Yet",
-                        systemImage: "flag.checkered",
-                        description: Text("Add the demo event to try scoring end to end.")
-                    )
-                } else {
+                if !events.isEmpty {
                     ForEach(events) { event in
                         EventRow(event: event)
                             .tag(event.id)
@@ -79,6 +81,32 @@ struct EventListView: View {
             }
             .scrollContentBackground(.hidden)
             .background(AguaColor.bgPrimary)
+            .overlay {
+                // Outside the List, so the buttons get the full width. The way in
+                // has to be on screen: the demo event used to be reachable only
+                // from the + menu, while this text told people to add it.
+                if events.isEmpty {
+                    ContentUnavailableView {
+                        Label("No Events Yet", systemImage: "flag.checkered")
+                    } description: {
+                        Text("Add the demo event to try scoring end to end.")
+                    } actions: {
+                        Button {
+                            addDemoEvent()
+                        } label: {
+                            Label("Add Demo Event", systemImage: "flag.checkered")
+                                .fontWeight(.semibold)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .foregroundStyle(Color.black)
+                        Button {
+                            showingNewEvent = true
+                        } label: {
+                            Label("New Event…", systemImage: "plus.circle")
+                        }
+                    }
+                }
+            }
             .navigationTitle("ScoreDeck")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -124,8 +152,8 @@ struct EventListView: View {
             }
         } detail: {
             NavigationStack {
-                if let event = events.first(where: { $0.id == selectedEventID }) {
-                    EventDetailView(session: EventSession(event: event, store: store))
+                if let session {
+                    EventDetailView(session: session)
                 } else {
                     ContentUnavailableView(
                         "Select an Event",
@@ -135,7 +163,15 @@ struct EventListView: View {
                 }
             }
         }
-        .task { load() }
+        .task {
+            load()
+            #if DEBUG
+            if let shot = StoreShot.requested { stage(shot) }
+            #endif
+        }
+        .onChange(of: selectedEventID) { _, newID in
+            syncSession(to: newID)
+        }
         .alert("Couldn't load events", isPresented: .constant(loadError != nil), presenting: loadError) { _ in
             Button("OK") { loadError = nil }
         } message: { message in
@@ -172,9 +208,27 @@ struct EventListView: View {
     private func load() {
         do {
             events = try store.loadAll().sorted { $0.name < $1.name }
-            if selectedEventID == nil { selectedEventID = events.first?.id }
+            if selectedEventID == nil {
+                selectedEventID = events.first?.id
+            }
+            syncSession(to: selectedEventID)
         } catch {
             loadError = error.localizedDescription
+        }
+    }
+
+    /// Rebuilds `session` only when the selected event id actually changed
+    /// (or the freshly-loaded event data needs picking up after an import/
+    /// rename/delete) — never on every unrelated `body` re-render, which
+    /// would otherwise silently drop an `EventDetailView` in the middle of
+    /// a live Multipeer session.
+    private func syncSession(to eventID: Event.ID?) {
+        guard let eventID, let event = events.first(where: { $0.id == eventID }) else {
+            session = nil
+            return
+        }
+        if session?.event.id != eventID {
+            session = EventSession(event: event, store: store)
         }
     }
 
@@ -229,6 +283,23 @@ struct EventListView: View {
         }
     }
 
+    #if DEBUG
+    private func stage(_ shot: StoreShot) {
+        if events.isEmpty {
+            try? store.save(StoreShot.scoredDemoEvent())
+            load()
+        }
+        guard shot != .events else {
+            selectedEventID = nil
+            return
+        }
+        selectedEventID = events.first?.id
+        syncSession(to: selectedEventID)
+        session?.activeJudgeID = session?.event.activeJudges.first?.id
+        session?.setRoles(shot.roles)
+    }
+    #endif
+
     private func addDemoEvent() {
         let event = DemoData.dirtConquers()
         do {
@@ -250,7 +321,7 @@ private struct EventRow: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(event.name).font(.headline)
-                Text("\(event.participants.count) participants · \(event.judges.count) judges · \(event.categories.count) categories")
+                Text("\(event.activeParticipants.count) participants · \(event.activeJudges.count) judges · \(event.activeCategories.count) categories")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }

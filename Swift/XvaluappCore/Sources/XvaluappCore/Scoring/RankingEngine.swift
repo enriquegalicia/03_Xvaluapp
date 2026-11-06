@@ -20,7 +20,7 @@ public struct RankingRow: Identifiable, Hashable, Sendable {
     /// `Subtitulados.m`.
     public var isTiedWithNeighbor: Bool
 
-    public var id: Int { participant.id }
+    public var id: UUID { participant.id }
 }
 
 public enum RankingEngine {
@@ -47,20 +47,20 @@ public enum RankingEngine {
         participants: [Participant],
         scores: [Score],
         onlyApproved: Bool = true,
-        categoryID: Int? = nil,
+        categoryID: UUID? = nil,
         tieThreshold: Double = 0.2
     ) -> [RankingRow] {
         let relevant = scores
             .filter { !onlyApproved || $0.status == .approved }
             .filter { categoryID == nil || $0.categoryID == categoryID }
 
-        var byParticipant: [Int: [Double]] = [:]
+        var byParticipant: [UUID: [Double]] = [:]
         for score in relevant {
             byParticipant[score.participantID, default: []].append(score.value)
         }
 
         let ranked = participants.compactMap { participant -> (Participant, Double, Int)? in
-            guard let values = byParticipant[participant.id], !values.isEmpty else { return nil }
+            guard !participant.isDeleted, let values = byParticipant[participant.id], !values.isEmpty else { return nil }
             let average = values.reduce(0, +) / Double(values.count)
             return (participant, average, values.count)
         }

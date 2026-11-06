@@ -54,11 +54,15 @@ final class MultipeerTransport: NSObject {
     }
 
     var onReceive: ((SyncMessage, MCPeerID) -> Void)?
-    /// Fired when a peer finishes connecting — the master uses this to push
-    /// a full snapshot to just-joined devices, replacing the legacy app's
-    /// "every screen requests a resync by typing a magic password command"
-    /// flow.
+    /// Fired when a peer finishes connecting — every device (not just a
+    /// Master) uses this to push a full snapshot + its current roles to
+    /// just-joined devices, replacing the legacy app's "every screen
+    /// requests a resync by typing a magic password command" flow.
     var onPeerConnected: ((MCPeerID) -> Void)?
+    /// Fired when a peer disconnects — `EventSession` uses this to drop
+    /// that peer's entry from `knownPeerRoles` so a stale "X is Master"
+    /// reading doesn't outlive the connection that reported it.
+    var onPeerDisconnected: ((MCPeerID) -> Void)?
 
     init(displayName: String) {
         // MCPeerID display names are capped at 63 UTF-8 bytes by the
@@ -122,7 +126,10 @@ extension MultipeerTransport: MCSessionDelegate {
                 // Unlike the legacy app's empty didChangeState stub, a
                 // disconnect actually updates visible state here instead
                 // of leaving stale "connected" UI behind.
-                self.connectedPeers.removeAll { $0 == peerID }
+                if self.connectedPeers.contains(peerID) {
+                    self.connectedPeers.removeAll { $0 == peerID }
+                    self.onPeerDisconnected?(peerID)
+                }
             case .connecting:
                 break
             @unknown default:

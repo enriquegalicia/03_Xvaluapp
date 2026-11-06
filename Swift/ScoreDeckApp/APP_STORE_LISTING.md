@@ -1,5 +1,7 @@
 # App Store Connect listing — draft
 
+> **Paste from [AppStoreConnect_Listing.md](documentation/AppStoreConnect_Listing.md)** (2026-10-19): one sheet with every App Store Connect field, Privacy Policy URL included, checked by `scripts/listing_check.py`. This file is background; where it disagrees with the sheet, the sheet wins.
+
 Draft copy for the ScoreDeck listing, in **English and Spanish** — matching
 the in-app localization (`Localizable.xcstrings`/`InfoPlist.xcstrings`, see
 CLAUDE.md). These are two separate things Apple treats independently: the
@@ -154,24 +156,27 @@ revised periodically.
 
 ## Support & marketing URLs
 
-Not yet set — App Store Connect requires a working support URL (at
-minimum a contact page or email) and accepts an optional marketing URL.
-Needs a real URL before submission; a bare GitHub repo link works as a
-placeholder support URL if nothing else exists yet.
+Pages written 2026-10-16 in ScoreDeck's own style (graphite + LED amber), source in
+`Aguach1leLabs/docs/scoredeck/`, copied into the `Aguach1leLabs-pages` repo. **They go live only
+after that repo is pushed**; open each one before submitting (Critical Path's 404'd through two
+reviews).
+
+- Support: `https://enriquegalicia.github.io/Aguach1leLabs-pages/scoredeck/support.html`
+- Marketing: `https://enriquegalicia.github.io/Aguach1leLabs-pages/scoredeck/marketing.html`
 
 ## Privacy policy URL
 
-Required even for an app this data-light, since it still processes photos
-a user chooses to submit for AI generation and stores an API key locally.
-A short, honest policy is enough — "we don't collect anything; AI features
-call OpenAI directly with your own key; nothing is sent to us" — but it
-needs to be hosted somewhere App Store Connect can link to (a GitHub Pages
-page or a one-line page on any site you control works fine).
+`https://enriquegalicia.github.io/Aguach1leLabs-pages/scoredeck/privacy.html`: no collection, no
+server; event data moves only between the event's own devices over the local network; optional AI
+images send a short text description to OpenAI with the user's own key.
 
 ## Screenshots
 
 Needed once the app runs on real hardware/simulator, per required device
-size (6.7" iPhone, 12.9" iPad at minimum for a universal app). Good shot
+size: **iPhone 6.3" (1206×2622) and iPad 13" (2064×2752)** for a universal app (Apple's
+required sizes as of 2026-10-06; 6.7"/12.9" are no longer the required ones). Story order,
+captions, header/search creative assets, A/B tests and custom product pages:
+[documentation/AppStore_Assets.md](documentation/AppStore_Assets.md). Good shot
 list once it's running:
 1. Screen role — the auto-rotating standings carousel with an event
    banner set

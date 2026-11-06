@@ -13,9 +13,9 @@ import Foundation
 /// full row copy, over the wire.
 public struct Score: Identifiable, Codable, Hashable, Sendable {
     public var id: UUID
-    public var judgeID: Int
-    public var participantID: Int
-    public var categoryID: Int
+    public var judgeID: UUID
+    public var participantID: UUID
+    public var categoryID: UUID
     public var value: Double
     public var status: Status
     /// When this mark was recorded, for audit/undo — the legacy app had no
@@ -33,9 +33,9 @@ public struct Score: Identifiable, Codable, Hashable, Sendable {
 
     public init(
         id: UUID = UUID(),
-        judgeID: Int,
-        participantID: Int,
-        categoryID: Int,
+        judgeID: UUID,
+        participantID: UUID,
+        categoryID: UUID,
         value: Double,
         status: Status = .pending,
         recordedAt: Date = Date()

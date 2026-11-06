@@ -15,17 +15,15 @@ enum ScoreDeckAI {
         LocalImageStore(subdirectory: "ScoreDeck")
     }
 
-    /// Shared visual language for anything generated for this app — the
-    /// same outline/palette/flatness rules as the Lab's app icons
-    /// (`ICON_STYLE_GUIDE.md` §1/§3), so an AI-generated rider avatar or
-    /// event banner reads as part of the same family as the Home Screen
-    /// icon and the in-app amber accent, not a mismatched photo.
+    /// Shared visual language for anything generated for this app, matching
+    /// ScoreDeck's own look (graphite panels, the icon's LED amber). It used
+    /// to ask for the portfolio's old cream-and-terracotta sticker style,
+    /// which App Review had seen across the account's other apps (4.3).
     static let styleSuffix = """
-    Flat vector sticker illustration, no photorealism. Warm terracotta \
-    orange (#D9722C) as the primary fill color, golden amber (#D4960A) as \
-    the one secondary accent color, both outlined in a thick, uniform \
-    espresso-brown ink stroke (#4A2F1C). One soft highlight per rounded \
-    shape, flat colors otherwise — no gradients beyond that, no drop \
-    shadows, no text or lettering. Hand-crafted, warm, a little naive.
+    Bold flat vector badge illustration, like a sports scoreboard graphic. \
+    Warm graphite background (#141312), LED amber (#F2B33D) as the one \
+    accent color, clean off-white linework (#F7F2E8). Crisp shapes, flat \
+    colors, at most a soft glow on the amber parts. No photorealism, no \
+    text or lettering.
     """
 }

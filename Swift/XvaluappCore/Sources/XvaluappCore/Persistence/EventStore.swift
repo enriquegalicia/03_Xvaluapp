@@ -52,12 +52,25 @@ public final class JSONEventStore: EventStoring, @unchecked Sendable {
         directory.appendingPathComponent("\(id.uuidString).json")
     }
 
+    /// One unreadable file must never take down the rest of the list. A
+    /// file can fail to decode after a schema change makes an older saved
+    /// event's shape incompatible (this package has had at least one
+    /// breaking one already — see `Models/Event.swift`'s migration to
+    /// `UUID` ids), or from a truncated write, or a stray non-event `.json`
+    /// someone dropped in this directory. Earlier this `map`'d with `try`,
+    /// so a single bad file threw and `loadAll()` returned nothing at
+    /// all — from the UI, that looked exactly like "my new event didn't
+    /// save," even though the write had actually succeeded; the *load*
+    /// right after it was what silently failed on some unrelated old file.
+    /// Skipping the bad file and keeping the rest is the fix; nothing here
+    /// deletes it, so it's still on disk if it's ever worth writing a real
+    /// migration for.
     public func loadAll() throws -> [Event] {
         let files = try fileManager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
             .filter { $0.pathExtension == "json" }
-        return try files.map { url in
-            let data = try Data(contentsOf: url)
-            return try decoder.decode(Event.self, from: data)
+        return files.compactMap { url -> Event? in
+            guard let data = try? Data(contentsOf: url) else { return nil }
+            return try? decoder.decode(Event.self, from: data)
         }
     }
 
